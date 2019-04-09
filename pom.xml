@@ -13,42 +13,7 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/Calculator/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/FeedService/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/MyJavaService/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/MyJavaService1/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/MyJavaService2/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/googleapis/src</directory>
+                <directory>services/FileService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -62,7 +27,14 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/liveBlob/src</directory>
+                <directory>services/ipify/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/randomuser/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -70,13 +42,6 @@
             <resource>
                 <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/wavemakeronline/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -162,16 +127,11 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>services/Calculator/src</source>
-                                <source>services/FeedService/src</source>
-                                <source>services/MyJavaService/src</source>
-                                <source>services/MyJavaService1/src</source>
-                                <source>services/MyJavaService2/src</source>
-                                <source>services/googleapis/src</source>
+                                <source>services/FileService/src</source>
                                 <source>services/hrdb/src</source>
-                                <source>services/liveBlob/src</source>
+                                <source>services/ipify/src</source>
+                                <source>services/randomuser/src</source>
                                 <source>services/securityService/src</source>
-                                <source>services/wavemakeronline/src</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -340,11 +300,6 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>2.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

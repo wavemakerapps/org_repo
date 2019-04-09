@@ -1,0 +1,26 @@
+{
+  "endpointAddress" : "https://api.ipify.org/",
+  "method" : "GET",
+  "headers" : { },
+  "redirectEnabled" : true,
+  "requestBody" : "",
+  "queryParams" : { },
+  "authDetails" : null,
+  "contentType" : "application/json",
+  "multiParamInfoList" : null,
+  "sampleHttpResponseDetails" : {
+    "statusCode" : 200,
+    "headers" : {
+      "Server" : [ "Cowboy" ],
+      "Connection" : [ "keep-alive" ],
+      "Content-Type" : [ "text/plain" ],
+      "Vary" : [ "Origin" ],
+      "Date" : [ "Mon, 25 Feb 2019 10:34:38 GMT" ],
+      "Content-Length" : [ "12" ],
+      "Via" : [ "1.1 vegur" ]
+    },
+    "responseBody" : "\"14.141.6.170\"",
+    "convertedResponse" : null
+  },
+  "proxy" : null
+}

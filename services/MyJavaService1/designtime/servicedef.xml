@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="MyJavaService1" class="com.mobile_live_widgets_prod.myjavaservice1.MyJavaService1" type="JavaService" springFile="MyJavaService1.spring.xml"/>

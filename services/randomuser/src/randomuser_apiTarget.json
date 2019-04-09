@@ -1,0 +1,287 @@
+{
+  "basePath" : "${rest.randomuser.basepath}",
+  "paths" : {
+    "/" : {
+      "x-WM-BASE_PATH" : "/",
+      "x-WM-TAG" : "RestServiceVirtualController",
+      "x-WM-RELATIVE_PATH" : "",
+      "get" : {
+        "x-WM-METHOD_NAME" : "invoke",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY",
+        "produces" : [ "application/json" ],
+        "operationId" : "randomuser_RestServiceVirtualController-invoke",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/RootResponse"
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [ {
+          "x-WM-EDITABLE" : false,
+          "in" : "query",
+          "name" : "results",
+          "format" : "string",
+          "description" : "results",
+          "type" : "string",
+          "required" : false
+        } ],
+        "tags" : [ "RestServiceVirtualController" ],
+        "consumes" : [ "application/json" ]
+      },
+      "x-WM-COMPLETE_PATH" : "${rest.randomuser.scheme}://${rest.randomuser.host}${rest.randomuser.basepath}/"
+    }
+  },
+  "host" : "${rest.randomuser.host}",
+  "schemes" : [ "${rest.randomuser.scheme}" ],
+  "definitions" : {
+    "dob" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.dob",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "age", "date" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "age" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "timezone" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.timezone",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "description", "offset" ],
+      "properties" : {
+        "offset" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "name" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.name",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "first", "last", "title" ],
+      "properties" : {
+        "last" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "first" : {
+          "type" : "string"
+        }
+      }
+    },
+    "coordinates" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.coordinates",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "latitude", "longitude" ],
+      "properties" : {
+        "latitude" : {
+          "type" : "string"
+        },
+        "longitude" : {
+          "type" : "string"
+        }
+      }
+    },
+    "registered" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.registered",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "age", "date" ],
+      "properties" : {
+        "date" : {
+          "type" : "string"
+        },
+        "age" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }
+    },
+    "location" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.location",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "city", "coordinates", "postcode", "state", "street", "timezone" ],
+      "properties" : {
+        "city" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "timezone" : {
+          "$ref" : "#/definitions/timezone"
+        },
+        "postcode" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "coordinates" : {
+          "$ref" : "#/definitions/coordinates"
+        },
+        "state" : {
+          "type" : "string"
+        }
+      }
+    },
+    "resultsEntryItem" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.resultsEntryItem",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "cell", "dob", "email", "gender", "id", "location", "login", "name", "nat", "phone", "picture", "registered" ],
+      "properties" : {
+        "nat" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "dob" : {
+          "$ref" : "#/definitions/dob"
+        },
+        "name" : {
+          "$ref" : "#/definitions/name"
+        },
+        "registered" : {
+          "$ref" : "#/definitions/registered"
+        },
+        "location" : {
+          "$ref" : "#/definitions/location"
+        },
+        "id" : {
+          "$ref" : "#/definitions/id"
+        },
+        "login" : {
+          "$ref" : "#/definitions/login"
+        },
+        "cell" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "picture" : {
+          "$ref" : "#/definitions/picture"
+        }
+      }
+    },
+    "id" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.id",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "name", "value" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "login" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.login",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "md5", "password", "salt", "sha1", "sha256", "username", "uuid" ],
+      "properties" : {
+        "sha1" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "salt" : {
+          "type" : "string"
+        },
+        "sha256" : {
+          "type" : "string"
+        },
+        "uuid" : {
+          "type" : "string"
+        },
+        "username" : {
+          "type" : "string"
+        },
+        "md5" : {
+          "type" : "string"
+        }
+      }
+    },
+    "picture" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.picture",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "large", "medium", "thumbnail" ],
+      "properties" : {
+        "thumbnail" : {
+          "type" : "string"
+        },
+        "large" : {
+          "type" : "string"
+        },
+        "medium" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RootResponse" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.RootResponse",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "info", "results" ],
+      "properties" : {
+        "results" : {
+          "x-WM-IS_LIST" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/resultsEntryItem"
+          }
+        },
+        "info" : {
+          "$ref" : "#/definitions/info"
+        }
+      }
+    },
+    "info" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.info",
+      "x-WM-TAGS" : [ "RestServiceVirtualController" ],
+      "required" : [ "page", "results", "seed", "version" ],
+      "properties" : {
+        "seed" : {
+          "type" : "string"
+        },
+        "page" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "results" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "version" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "x-WM-USE_PROXY_FOR_WEB" : false,
+    "x-WM-USE_PROXY_FOR_MOBILE" : false,
+    "x-WM-API_ID" : "efae085f-a48c-4a93-912a-b79a546897ea",
+    "x-WM-SERVICE_ID" : "randomuser",
+    "version" : "2.0",
+    "x-WM-SERVICE_TYPE" : "RestService"
+  },
+  "tags" : [ {
+    "name" : "RestServiceVirtualController",
+    "description" : "Rest service swagger documentation"
+  } ]
+}

@@ -1,37 +1,34 @@
 <wm-page data-ng-controller="MainPageController" name="mainpage"> 
-    <wm-left-panel content="leftnav" columnwidth="2" name="left_panel1"></wm-left-panel> 
-    <wm-mobile-navbar name="mobile_navbar1" title="Live list with live variable" leftnavpaneliconclass="wi wi-menu" backbutton="false"> 
-        <wm-anchor caption="" name="AddLink" iconclass="wi wi-plus"></wm-anchor> 
+    <wm-left-panel name="left_panel1" content="leftnav" columnwidth="2"></wm-left-panel> 
+    <wm-mobile-navbar title="bind:Variables.staticVariable1.dataSet.dataValue" name="mobile_navbar1" leftnavpaneliconclass="wi wi-menu" backbutton="false"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-plus" on-tap="Actions.logoutAction.invoke()"></wm-anchor> 
     </wm-mobile-navbar> 
     <wm-content name="content1"> 
-        <wm-page-content columnwidth="12" name="page_content1"> 
-            <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.HrdbEmployeeData.dataSet" navigation="Pager" name="livelist1"> 
-                <wm-listtemplate layout="inline" name="listtemplate1"> 
-                    <wm-container class="media-left" name="container1"> 
-                        <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.HrdbEmployeeData.dataSet.picurl" class="media-object"></wm-picture> 
-                    </wm-container> 
-                    <wm-container class="media-body" padding="unset unset unset 1.25em" name="container2"> 
-                        <wm-label name="Name" class="p media-heading" caption="bind:Variables.HrdbEmployeeData.dataSet.firstname" fontsize="1.143" fontunit="em"></wm-label> 
-                        <wm-label name="JobTitle" caption="bind:Variables.HrdbEmployeeData.dataSet.jobTitle" class="p text-muted"></wm-label> 
-                    </wm-container> 
-                    <wm-container class="media-right media-top" name="container3"> 
-                        <wm-button class="btn-transparent" iconclass="wi wi-share" fontsize="18" fontunit="pt" name="button1"></wm-button> 
-                    </wm-container> 
-                </wm-listtemplate> 
-            </wm-list> 
-            <wm-camera name="camera1"></wm-camera> 
-            <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="CameraImageList1" dataset="bind:Variables.LiveBlobCameraImageData.dataSet" navigation="None"> 
-                <wm-listtemplate layout="inline" name="listtemplate2"> 
-                    <wm-container class="media-left" name="container4"> 
-                        <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.LiveBlobCameraImageData.dataSet.image" class="media-object"></wm-picture> 
-                    </wm-container> 
-                    <wm-container class="media-body" name="container5"> 
-                        <wm-label class="p media-heading" name="Name" caption="bind:Variables.LiveBlobCameraImageData.dataSet.text" fontunit="em" padding="unset unset unset 1.25em"></wm-label> 
-                    </wm-container> 
-                </wm-listtemplate> 
-            </wm-list> 
-            <wm-button class="btn-default" caption="Button" type="button" margin="unset 0.5em" name="button2" on-tap="Variables.databaseVariable1.createRecord()"></wm-button> 
+        <wm-page-content name="page_content1" columnwidth="12"> 
+            <wm-segmented-control show="true" name="segmented_control1"> 
+                <wm-segment-content show="bind:Variables.staticVariable3.dataSet.dataValue" caption="bind:Variables.staticVariable2.dataSet.dataValue" name="segment_content1" content="Camera_Partial"></wm-segment-content> 
+                <wm-segment-content caption="Variable" name="segment_content2"> 
+                    <wm-tabs name="tabs1"> 
+                        <wm-tabpane title="image" name="tabpane1"> 
+                            <wm-container name="container1" horizontalalign="center" margin="10px unset unset unset"> 
+                                <wm-button class="btn-default" type="button" caption="Click to capture image" name="button1" margin="unset 0.5em" on-tap="Variables.CaptureImage.invoke()"></wm-button> 
+                            </wm-container> 
+                            <wm-container name="container3" horizontalalign="center" margin="10px unset unset unset"> 
+                                <wm-picture name="picture1" height="100" width="100" shape="circle" picturesource="bind:Variables.CaptureImage.dataSet.imagePath"></wm-picture> 
+                            </wm-container> 
+                        </wm-tabpane> 
+                        <wm-tabpane title="Video" name="tabpane2"> 
+                            <wm-container name="container4" horizontalalign="center" margin="10px unset unset unset"> 
+                                <wm-button class="btn-default" type="button" caption="Click to capture video" name="button2" margin="unset 0.5em" on-tap="Variables.CaptureVideo.invoke()"></wm-button> 
+                            </wm-container> 
+                            <wm-container name="container5" horizontalalign="center" margin="10px unset unset unset"> 
+                                <wm-video controls="controls" name="video1" videopreload="none" mp4format="bind:Variables.CaptureVideo.dataSet.videoPath"></wm-video> 
+                            </wm-container> 
+                        </wm-tabpane> 
+                    </wm-tabs> 
+                </wm-segment-content> 
+            </wm-segmented-control> 
         </wm-page-content> 
     </wm-content> 
-    <wm-mobile-tabbar dataset="home,music,edit" name="mobile_tabbar1"></wm-mobile-tabbar> 
+    <wm-mobile-tabbar name="mobile_tabbar1" dataset="home,music,edit"></wm-mobile-tabbar> 
 </wm-page>

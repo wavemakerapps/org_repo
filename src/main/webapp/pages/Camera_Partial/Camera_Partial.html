@@ -1,0 +1,20 @@
+<wm-partial name="partial1" data-ng-controller="Camera_PartialPageController"> 
+    <wm-tabs name="tabs1"> 
+        <wm-tabpane title="Image" name="tabpane1" badgevalue="1" badgetype="success"> 
+            <wm-container name="container1" horizontalalign="center" margin="10px unset unset unset"> 
+                <wm-camera name="camera1" allowedit="true" savetogallery="false"></wm-camera> 
+            </wm-container> 
+            <wm-container name="container2" horizontalalign="center" margin="10px unset unset unset" padding="5px unset unset unset"> 
+                <wm-picture name="picture1" height="100" width="100" shape="rounded" picturesource="bind:Widgets.camera1.localFilePath"></wm-picture> 
+            </wm-container> 
+        </wm-tabpane> 
+        <wm-tabpane title="Video" disabled="false" name="tabpane2"> 
+            <wm-container name="container3" horizontalalign="center" margin="10px unset unset unset" padding="5px unset unset unset"> 
+                <wm-camera name="camera2" iconclass="wi wi-videocam" capturetype="VIDEO"></wm-camera> 
+            </wm-container> 
+            <wm-container name="container4" horizontalalign="center" margin="10px unset unset unset" padding="5px unset unset unset"> 
+                <wm-video controls="controls" name="video1" mp4format="bind:Widgets.camera2.localFilePath" videopreload="none"></wm-video> 
+            </wm-container> 
+        </wm-tabpane> 
+    </wm-tabs> 
+</wm-partial>

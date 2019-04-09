@@ -1,0 +1,24 @@
+{
+  "getcontacts" : {
+    "_id" : "wm-getcontacts-wm.DeviceVariable-1490691561732",
+    "name" : "getcontacts",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "contactFilter",
+      "value" : "bind:Widgets.mobile_navbar1.query",
+      "type" : "string"
+    } ],
+    "service" : "contacts",
+    "operation" : "getContacts",
+    "dataSet" : [ {
+      "id" : "",
+      "displayName" : "",
+      "phoneNumbers" : [ {
+        "value" : ""
+      } ]
+    } ],
+    "startUpdate" : true,
+    "autoUpdate" : true
+  }
+}

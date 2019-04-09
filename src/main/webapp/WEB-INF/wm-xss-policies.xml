@@ -153,28 +153,28 @@
         <attribute name="lang"/>
     </global-tag-attributes>
     <tags-to-encode>
-        <tag>g</tag>
-        <tag>grin</tag>
+        <tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">g</tag>
+        <tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">grin</tag>
     </tags-to-encode>
     <tag-rules>
-        <tag name="ul" action="validate"/>
-        <tag name="b" action="filter"/>
-        <tag name="a" action="validate"/>
-        <tag name="div" action="validate"/>
-        <tag name="blockquote" action="validate"/>
-        <tag name="noscript" action="remove"/>
-        <tag name="script" action="remove"/>
-        <tag name="br" action="truncate"/>
-        <tag name="i" action="validate"/>
-        <tag name="li" action="validate"/>
-        <tag name="iframe" action="remove"/>
-        <tag name="frame" action="remove"/>
-        <tag name="frameset" action="remove"/>
         <tag name="tt" action="validate"/>
-        <tag name="p" action="validate"/>
-        <tag name="noframes" action="remove"/>
-        <tag name="ol" action="validate"/>
+        <tag name="a" action="validate"/>
+        <tag name="b" action="filter"/>
+        <tag name="blockquote" action="validate"/>
+        <tag name="frameset" action="remove"/>
         <tag name="em" action="validate"/>
+        <tag name="i" action="validate"/>
+        <tag name="script" action="remove"/>
+        <tag name="noframes" action="remove"/>
+        <tag name="p" action="validate"/>
+        <tag name="div" action="validate"/>
+        <tag name="br" action="truncate"/>
+        <tag name="noscript" action="remove"/>
+        <tag name="ul" action="validate"/>
+        <tag name="iframe" action="remove"/>
+        <tag name="ol" action="validate"/>
+        <tag name="li" action="validate"/>
+        <tag name="frame" action="remove"/>
     </tag-rules>
     <css-rules/>
 </anti-samy-rules>

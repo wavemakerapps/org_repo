@@ -1,21 +1,29 @@
 [ {
+  "name" : "Barcode",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Barcode_Partial",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Calendar",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Camera_Partial",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
-  "name" : "FeedServiceVar",
+  "name" : "Contact_device_variable",
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "ListWithQueryServiceVar",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "Livefilter",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "Liveform",
+  "name" : "Device_Variables",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -27,19 +35,7 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "ProcedureServiceVar",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "Rest_Service_var",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "SoapServiceVariable",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "WebSocketVar",
+  "name" : "file_upload",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -47,7 +43,11 @@
   "type" : "LEFTNAV",
   "params" : [ ]
 }, {
-  "name" : "templ",
+  "name" : "media",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "plugin",
   "type" : "PAGE",
   "params" : [ ]
 } ]

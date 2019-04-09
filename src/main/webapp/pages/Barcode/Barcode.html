@@ -1,0 +1,22 @@
+<wm-page name="page1" data-ng-controller="BarcodePageController"> 
+    <wm-left-panel name="left_panel1" content="leftnav"></wm-left-panel> 
+    <wm-mobile-navbar title="Barcode" name="mobile_navbar1"></wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content name="page_content1" columnwidth="12"> 
+            <wm-segmented-control name="segmented_control1"> 
+                <wm-segment-content name="segment_content1" caption="Widget"> 
+                    <wm-container name="container1" content="Barcode_Partial"></wm-container> 
+                </wm-segment-content> 
+                <wm-segment-content name="segment_content2" caption="Variable"> 
+                    <wm-container horizontalalign="center" name="container2" margin="10px unset unset unset"> 
+                        <wm-button class="btn-default" type="button" name="button1" caption="click to scan barcode" margin="unset 0.5em" on-tap="Variables.scanBarcode.invoke()"></wm-button> 
+                    </wm-container> 
+                    <wm-container horizontalalign="center" name="container3" margin="10px unset unset unset"> 
+                        <wm-label name="label1" caption="bind:Variables.scanBarcode.dataSet.text" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                </wm-segment-content> 
+            </wm-segmented-control> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar name="mobile_tabbar1" dataset="home,star,music"></wm-mobile-tabbar> 
+</wm-page>

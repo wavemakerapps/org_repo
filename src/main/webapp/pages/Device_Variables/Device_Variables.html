@@ -1,0 +1,54 @@
+<wm-page name="page1" data-ng-controller="Device_VariablesPageController"> 
+    <wm-left-panel name="left_panel1" content="leftnav"></wm-left-panel> 
+    <wm-mobile-navbar title="Device Variables" name="mobile_navbar1"></wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content name="page_content1" columnwidth="12"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane title="AppInfo" name="tabpane1"> 
+                    <wm-container name="container1" margin="10px unset unset unset"> 
+                        <wm-label name="label1" caption="bind:Variables.appInfo.dataSet.appversion" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container2" margin="10px unset unset unset"> 
+                        <wm-label name="label2" caption="bind:Variables.appInfo.dataSet.cordovaversion" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                </wm-tabpane> 
+                <wm-tabpane title="Device Info" name="tabpane2"> 
+                    <wm-container name="container3" margin="10px unset unset unset"> 
+                        <wm-label name="label3" caption="bind:Variables.deviceInfo.dataSet.os" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container4" margin="10px unset unset unset"> 
+                        <wm-label name="label4" caption="bind:Variables.deviceInfo.dataSet.osVersion" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container5" margin="10px unset unset unset"> 
+                        <wm-label name="label5" caption="bind:Variables.deviceInfo.dataSet.deviceUUID" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container6" margin="10px unset unset unset"> 
+                        <wm-label name="label6" caption="bind:Variables.deviceInfo.dataSet.deviceModel" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container7" margin="10px unset unset unset"> 
+                        <wm-label name="label7" caption="bind:Variables.deviceInfo.dataSet.connectionType" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                </wm-tabpane> 
+                <wm-tabpane title="Location" name="tabpane3"> 
+                    <wm-prefab name="googlemaps1" prefabname="googlemaps" zoom="5" locations="bind:Variables.Location.dataSet" lat="coords.latitude" lng="coords.longitude"></wm-prefab> 
+                    <wm-prefab prefabname="googlemaps" name="googlemaps2"></wm-prefab> 
+                </wm-tabpane> 
+                <wm-tabpane title="NetworkInfo" name="tabpane4"> 
+                    <wm-container name="container8" margin="10px unset unset unset"> 
+                        <wm-label name="label8" caption="bind:Variables.NetworkInfo.dataSet.connectionType" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container9" margin="10px unset unset unset"> 
+                        <wm-label name="label9" caption="bind:Variables.NetworkInfo.dataSet.isOffline" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                    <wm-container name="container10" margin="10px unset unset unset"> 
+                        <wm-label name="label10" caption="bind:Variables.NetworkInfo.dataSet.isOnline" padding="unset 0.5em"></wm-label> 
+                    </wm-container> 
+                </wm-tabpane> 
+                <wm-tabpane title="Vibrate" name="tabpane5"> 
+                    <wm-button class="btn-default" type="button" name="button1" caption="Click to vibrate" margin="unset 0.5em" on-tap="Variables.Vibrate.invoke()"></wm-button> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar name="mobile_tabbar1" dataset="home,star,music"></wm-mobile-tabbar> 
+</wm-page>

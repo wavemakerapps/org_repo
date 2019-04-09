@@ -1,0 +1,68 @@
+{
+  "FileServiceListFiles" : {
+    "_id" : "wm-FileServiceListFiles-wm.ServiceVariable-1490697546978",
+    "name" : "FileServiceListFiles",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.dev_28thmar.fileservice.FileService.WMFile",
+    "service" : "FileService",
+    "operation" : "listFiles",
+    "operationId" : "FileController_listFiles",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "File"
+  },
+  "fileUpload" : {
+    "_id" : "wm-fileUpload-wm.DeviceVariable-1490697753289",
+    "name" : "fileUpload",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "localFile",
+      "value" : "bind:Widgets.camera1.localFilePath",
+      "type" : "string"
+    } ],
+    "service" : "file",
+    "operation" : "upload",
+    "dataSet" : {
+      "fileName" : "",
+      "path" : "",
+      "length" : 0,
+      "success" : false,
+      "inlinePath" : "",
+      "errorMessage" : ""
+    },
+    "onSuccess" : "fileUploadonSuccess($event, $scope)",
+    "onError" : "fileUploadonError($event, $scope)"
+  },
+  "openFileVariable" : {
+    "_id" : "wm-openFileVariable-wm.DeviceVariable-1551084911465",
+    "name" : "openFileVariable",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "filePath",
+      "value" : "resources/files/sample.pdf",
+      "type" : "string"
+    }, {
+      "target" : "fileType",
+      "value" : "pdf",
+      "type" : "list"
+    } ],
+    "service" : "file",
+    "operation" : "openFile",
+    "dataSet" : { },
+    "fileType" : "pdf"
+  }
+}

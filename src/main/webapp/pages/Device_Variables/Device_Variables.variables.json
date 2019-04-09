@@ -1,0 +1,76 @@
+{
+  "Location" : {
+    "_id" : "wm-Location-wm.DeviceVariable-1490694246613",
+    "name" : "Location",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "geolocationHighAccuracy",
+      "value" : true,
+      "type" : "boolean"
+    }, {
+      "target" : "geolocationMaximumAge",
+      "value" : 3,
+      "type" : "number"
+    }, {
+      "target" : "geolocationTimeout",
+      "value" : 5,
+      "type" : "number"
+    } ],
+    "service" : "device",
+    "operation" : "getCurrentGeoPosition",
+    "dataSet" : {
+      "coords" : {
+        "latitude" : 0,
+        "longitude" : 0,
+        "altitude" : 0,
+        "accuracy" : 0,
+        "altitudeAccuracy" : 0,
+        "heading" : 0,
+        "speed" : 0
+      },
+      "timestamp" : 0
+    },
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "geolocationHighAccuracy" : true,
+    "geolocationMaximumAge" : 3,
+    "geolocationTimeout" : 5
+  },
+  "NetworkInfo" : {
+    "_id" : "wm-NetworkInfo-wm.DeviceVariable-1490694449513",
+    "name" : "NetworkInfo",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "networkStatus",
+      "value" : "bind:$root.networkStatus",
+      "type" : "boolean"
+    } ],
+    "service" : "device",
+    "operation" : "getNetworkInfo",
+    "dataSet" : {
+      "connectionType" : "NONE",
+      "isConnecting" : false,
+      "isNetworkAvailable" : true,
+      "isOnline" : true,
+      "isOffline" : false
+    },
+    "startUpdate" : true,
+    "autoUpdate" : true
+  },
+  "Vibrate" : {
+    "_id" : "wm-deviceVariable1-wm.DeviceVariable-1490694622382",
+    "name" : "Vibrate",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "vibrationtime",
+      "value" : "bind:2",
+      "type" : "number"
+    } ],
+    "service" : "device",
+    "operation" : "vibrate",
+    "vibrationtime" : 2
+  }
+}
