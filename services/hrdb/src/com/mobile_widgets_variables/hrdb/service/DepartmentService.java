@@ -93,6 +93,20 @@ public interface DepartmentService {
      */
     Department update(@Valid Department department);
 
+
+    /**
+     * Partially updates the details of an existing Department. It updates only the
+     * fields of the existing Department which are passed in the departmentPatch.
+     *
+     * This method overrides the input field values using Server side or database managed properties defined on Department if any.
+     *
+     * @param departmentId The id of the Department to be deleted; value cannot be null.
+     * @param departmentPatch The partial data of Department which is supposed to be updated; value cannot be null.
+     * @return The updated Department.
+     * @throws EntityNotFoundException if no Department is found with given input.
+     */
+    Department partialUpdate(Integer departmentId, Map<String, Object> departmentPatch);
+
     /**
      * Deletes an existing Department with the given id.
      *

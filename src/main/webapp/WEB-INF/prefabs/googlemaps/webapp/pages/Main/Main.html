@@ -1,18 +1,4 @@
-<wm-prefab-container name="googlemap">  
-    <wm-spinner show="bind:isMapLoading" class="spinner-transparent"></wm-spinner> 
-    <ng-map id="map" default-style="false" min-zoom="2" [attr.zoom-to-include-markers]="zoom === 'Auto' ? 'auto' : false" map-initialized="onMapLoad" class="full-height full-width" [attr.center]="center" [attr.zoom]="zoomLevel || 5" draggable="true" [attr.map-type-id]="viewtype"> 
-        <div ng-repeat="marker in markersData"> 
-            <marker [attr.position]="marker?.latlng" on-mouseover="onMarkerHover(event, marker)" on-click="onMarkerClick(event, marker)" [attr.icon]="marker?.iconData"> 
-            </marker> 
-        </div> 
-        <shape name="circle" ng-repeat="shape in markersData" [attr.stroke-color]="shape?.color" stroke-opacity="0.5" stroke-weight="2" [attr.fill-color]="shape?.color" fill-opacity="0.35" [attr.center]="shape?.latlng" [attr.radius]="shape?.radius" show="bind:radius"> 
-        </shape> 
-        <directions [attr.travel-mode]="travelMode" [attr.waypoints]="directionsData?.wayPoints" [attr.origin]="directionsData?.origin" [attr.destination]="directionsData?.destination" show="bind:directionsData.wayPoints"> 
-        </directions> 
-        <directions [attr.travel-mode]="travelMode" [attr.origin]="directionsData?.origin" [attr.destination]="directionsData?.destination" show="bind:!directionsData.wayPoints"> 
-        </directions> 
-        <traffic-layer show="bind:trafficLayer"></traffic-layer> 
-        <transit-layer show="bind:transitLayer"></transit-layer> 
-        <heatmap-layer id="heatmapLayer" data="heatmapData" show="bind:isHeatMapDataReady"></heatmap-layer> 
-    </ng-map>  
+<wm-prefab-container name="prefab_container_map">
+    <wm-container name="mapContainer" class="map-container" style="height: 400px"></wm-container>
+    <wm-spinner show="bind:isMapLoading" name="spinner2" type="icon" deferload="false" animation="spin"></wm-spinner>
 </wm-prefab-container>

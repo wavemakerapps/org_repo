@@ -139,15 +139,6 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-     <filter>
-        <filter-name>etagFilter</filter-name>
-        <filter-class>com.wavemaker.commons.web.filter.EtagFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>etagFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
     <filter>
         <filter-name>wmRequestFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -161,20 +152,20 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
     <filter>
-        <filter-name>cacheControlFilter</filter-name>
+        <filter-name>cacheManagementFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
         <init-param>
             <param-name>targetBeanName</param-name>
-            <param-value>cacheControlFilter</param-value>
+            <param-value>cacheManagementFilter</param-value>
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>cacheControlFilter</filter-name>
-        <url-pattern>/</url-pattern>
-        <url-pattern>/login.html</url-pattern>
-        <url-pattern>/index.html</url-pattern>
+        <filter-name>cacheManagementFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
 
     <filter>
         <filter-name>languagePreferenceFilter</filter-name>

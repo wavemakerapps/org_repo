@@ -84,6 +84,20 @@ public interface VacationService {
      */
     Vacation update(@Valid Vacation vacation);
 
+
+    /**
+     * Partially updates the details of an existing Vacation. It updates only the
+     * fields of the existing Vacation which are passed in the vacationPatch.
+     *
+     * This method overrides the input field values using Server side or database managed properties defined on Vacation if any.
+     *
+     * @param vacationId The id of the Vacation to be deleted; value cannot be null.
+     * @param vacationPatch The partial data of Vacation which is supposed to be updated; value cannot be null.
+     * @return The updated Vacation.
+     * @throws EntityNotFoundException if no Vacation is found with given input.
+     */
+    Vacation partialUpdate(Integer vacationId, Map<String, Object> vacationPatch);
+
     /**
      * Deletes an existing Vacation with the given id.
      *

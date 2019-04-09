@@ -84,6 +84,20 @@ public interface UserService {
      */
     User update(@Valid User user);
 
+
+    /**
+     * Partially updates the details of an existing User. It updates only the
+     * fields of the existing User which are passed in the userPatch.
+     *
+     * This method overrides the input field values using Server side or database managed properties defined on User if any.
+     *
+     * @param userIdInstance The id of the User to be deleted; value cannot be null.
+     * @param userPatch The partial data of User which is supposed to be updated; value cannot be null.
+     * @return The updated User.
+     * @throws EntityNotFoundException if no User is found with given input.
+     */
+    User partialUpdate(Integer userIdInstance, Map<String, Object> userPatch);
+
     /**
      * Deletes an existing User with the given id.
      *

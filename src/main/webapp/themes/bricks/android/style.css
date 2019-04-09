@@ -1,8 +1,8 @@
 /*START - Android Theme Customizations*/
 .wm-app {
   /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
   /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1121,7 +1121,6 @@
   text-decoration: underline;
 }
 .wm-app a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2546,7 +2545,6 @@ a.wm-app .bg-danger:focus {
 .wm-app input[type="file"]:focus,
 .wm-app input[type="radio"]:focus,
 .wm-app input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3037,7 +3035,6 @@ select[multiple].wm-app .input-lg {
 .wm-app .btn.focus,
 .wm-app .btn:active.focus,
 .wm-app .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -4046,6 +4043,8 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 }
 .wm-app .nav-tabs.nav-justified {
   width: 100%;
+  border-bottom-color: #273647;
+  background-color: #273647;
   border-bottom: 0;
 }
 .wm-app .nav-tabs.nav-justified > li {
@@ -4067,6 +4066,53 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
   .wm-app .nav-tabs.nav-justified > li > a {
     margin-bottom: 0;
   }
+}
+.wm-app .nav-tabs.nav-justified > li > a,
+.wm-app .nav-tabs.nav-justified > li .app-menu a,
+.wm-app .nav-tabs.nav-justified > li .app-popover-wrapper a {
+  color: #fff;
+  background-color: transparent;
+  border-bottom-color: transparent;
+  border-bottom-width: 3px;
+  border-radius: 0;
+  box-shadow: none;
+  margin-right: 0px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.wm-app .nav-tabs.nav-justified > li > a:hover,
+.wm-app .nav-tabs.nav-justified > li .app-menu a:hover,
+.wm-app .nav-tabs.nav-justified > li .app-popover-wrapper a:hover {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+}
+.wm-app .nav-tabs.nav-justified > li > a .app-icon,
+.wm-app .nav-tabs.nav-justified > li .app-menu a .app-icon,
+.wm-app .nav-tabs.nav-justified > li .app-popover-wrapper a .app-icon {
+  background-size: 100%;
+  margin-right: 0.417em;
+  top: 0.167em;
+}
+.wm-app .nav-tabs.nav-justified > li.active > a,
+.wm-app .nav-tabs.nav-justified > li.active .app-menu a,
+.wm-app .nav-tabs.nav-justified > li.active .app-popover-wrapper a {
+  border-color: transparent transparent #d9534f;
+  color: #fff;
+  background-color: transparent;
+  border-bottom-width: 3px;
+}
+.wm-app .nav-tabs.nav-justified > li.active > a:hover,
+.wm-app .nav-tabs.nav-justified > li.active .app-menu a:hover,
+.wm-app .nav-tabs.nav-justified > li.active .app-popover-wrapper a:hover {
+  border-color: transparent transparent #d9534f;
+  color: #fff;
+  background-color: transparent;
+  border-bottom-width: 3px;
+}
+.wm-app .nav-tabs.nav-justified.nav-stacked {
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 .wm-app .nav-tabs.nav-justified > li > a {
   margin-right: 0;
@@ -5242,7 +5288,7 @@ a.wm-app .thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: transparent;
+  background-color: #15202D;
   border: 1px solid #333;
 }
 .wm-app .list-group-item:first-child {
@@ -6760,6 +6806,10 @@ button.wm-app .close {
   border-color: transparent;
   background-color: transparent;
 }
+.wm-app .btn-secondary:hover,
+.wm-app .btn-secondary:focus {
+  color: #777;
+}
 .wm-app label {
   font-weight: normal;
 }
@@ -6795,6 +6845,10 @@ button.wm-app .close {
 .wm-app .app-tile.bg-warning {
   color: #fff;
 }
+.wm-app .close {
+  opacity: 1;
+  color: #fff;
+}
 .wm-app .app-content-column {
   background-color: #15202D;
 }
@@ -6818,7 +6872,10 @@ button.wm-app .close {
   color: #d9534f;
 }
 .wm-app .app-mobile-navbar .navbar-btn {
+  line-height: 35pt;
   color: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
   background-color: inherit;
 }
 .wm-app .app-mobile-navbar .navbar-btn:hover,
@@ -6891,7 +6948,7 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .btn,
 .wm-app .app-nav .app-nav-item .dropdown a,
 .wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle,
-.wm-app .app-nav .app-nav-item .app-popover a {
+.wm-app .app-nav .app-nav-item .app-popover-wrapper a {
   letter-spacing: .025em;
   font-weight: bold;
   padding: 1em;
@@ -6904,7 +6961,7 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .btn:hover,
 .wm-app .app-nav .app-nav-item .dropdown a:hover,
 .wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle:hover,
-.wm-app .app-nav .app-nav-item .app-popover a:hover {
+.wm-app .app-nav .app-nav-item .app-popover-wrapper a:hover {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -6912,7 +6969,7 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .btn.active,
 .wm-app .app-nav .app-nav-item .dropdown a.active,
 .wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle.active,
-.wm-app .app-nav .app-nav-item .app-popover a.active {
+.wm-app .app-nav .app-nav-item .app-popover-wrapper a.active {
   background-color: transparent;
   border-left-color: #d9534f;
 }
@@ -6920,7 +6977,7 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .btn .app-icon,
 .wm-app .app-nav .app-nav-item .dropdown a .app-icon,
 .wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle .app-icon,
-.wm-app .app-nav .app-nav-item .app-popover a .app-icon {
+.wm-app .app-nav .app-nav-item .app-popover-wrapper a .app-icon {
   width: 1.2em;
   text-align: center;
 }
@@ -6928,7 +6985,7 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .btn .caret,
 .wm-app .app-nav .app-nav-item .dropdown a .caret,
 .wm-app .app-nav .app-nav-item .dropdown a.dropdown-toggle .caret,
-.wm-app .app-nav .app-nav-item .app-popover a .caret {
+.wm-app .app-nav .app-nav-item .app-popover-wrapper a .caret {
   margin-top: 0;
   height: auto;
 }
@@ -6949,6 +7006,35 @@ button.wm-app .close {
 }
 .wm-app .app-nav .app-nav-item > .dropdown > a {
   padding: .93em 1em;
+}
+.wm-app .nav-pills > li .dropdown a.dropdown-toggle:hover,
+.wm-app .nav-pills > li .app-popover-wrapper a:hover,
+.wm-app .nav-pills > li .dropdown a.dropdown-toggle:focus,
+.wm-app .nav-pills > li .app-popover-wrapper a:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #d9534f;
+}
+.wm-app .nav-pills > li.active .dropdown a.dropdown-toggle,
+.wm-app .nav-pills > li.active .app-popover-wrapper a {
+  color: #fff;
+  background-color: #d9534f;
+}
+.wm-app .nav-pills > li.active .dropdown a.dropdown-toggle:hover,
+.wm-app .nav-pills > li.active .app-popover-wrapper a:hover,
+.wm-app .nav-pills > li.active .dropdown a.dropdown-toggle:focus,
+.wm-app .nav-pills > li.active .app-popover-wrapper a:focus {
+  color: #fff;
+  background-color: #d9534f;
+}
+.wm-app .nav.app-chips > li .app-chip {
+  background-color: #333;
+}
+.wm-app .app-chart .nvd3 text {
+  fill: #fff;
+}
+.wm-app .app-slider input[type='range']::-webkit-slider-thumb {
+  background-color: #d9534f;
 }
 .wm-app .app-segmented-control > .btn-group {
   box-shadow: 0 0px 5px #d9534f;
@@ -6975,12 +7061,17 @@ button.wm-app .close {
 .wm-app .app-segmented-control > .btn-group.btn-group-justified {
   padding: 0;
 }
-.wm-app .nav-tabs {
+.wm-app .nav-tabs,
+.wm-app .nav-justified {
   border-bottom-color: #273647;
   background-color: #273647;
 }
 .wm-app .nav-tabs > li > a,
-.wm-app .nav-tabs > li .app-menu a {
+.wm-app .nav-justified > li > a,
+.wm-app .nav-tabs > li .app-menu a,
+.wm-app .nav-justified > li .app-menu a,
+.wm-app .nav-tabs > li .app-popover-wrapper a,
+.wm-app .nav-justified > li .app-popover-wrapper a {
   color: #fff;
   background-color: transparent;
   border-bottom-color: transparent;
@@ -6992,30 +7083,51 @@ button.wm-app .close {
   font-weight: normal;
 }
 .wm-app .nav-tabs > li > a:hover,
-.wm-app .nav-tabs > li .app-menu a:hover {
+.wm-app .nav-justified > li > a:hover,
+.wm-app .nav-tabs > li .app-menu a:hover,
+.wm-app .nav-justified > li .app-menu a:hover,
+.wm-app .nav-tabs > li .app-popover-wrapper a:hover,
+.wm-app .nav-justified > li .app-popover-wrapper a:hover {
   color: #fff;
   background-color: transparent;
   border-color: transparent;
 }
 .wm-app .nav-tabs > li > a .app-icon,
-.wm-app .nav-tabs > li .app-menu a .app-icon {
+.wm-app .nav-justified > li > a .app-icon,
+.wm-app .nav-tabs > li .app-menu a .app-icon,
+.wm-app .nav-justified > li .app-menu a .app-icon,
+.wm-app .nav-tabs > li .app-popover-wrapper a .app-icon,
+.wm-app .nav-justified > li .app-popover-wrapper a .app-icon {
   background-size: 100%;
   margin-right: 0.417em;
   top: 0.167em;
 }
 .wm-app .nav-tabs > li.active > a,
-.wm-app .nav-tabs > li.active .app-menu a {
+.wm-app .nav-justified > li.active > a,
+.wm-app .nav-tabs > li.active .app-menu a,
+.wm-app .nav-justified > li.active .app-menu a,
+.wm-app .nav-tabs > li.active .app-popover-wrapper a,
+.wm-app .nav-justified > li.active .app-popover-wrapper a {
   border-color: transparent transparent #d9534f;
   color: #fff;
   background-color: transparent;
   border-bottom-width: 3px;
 }
 .wm-app .nav-tabs > li.active > a:hover,
-.wm-app .nav-tabs > li.active .app-menu a:hover {
+.wm-app .nav-justified > li.active > a:hover,
+.wm-app .nav-tabs > li.active .app-menu a:hover,
+.wm-app .nav-justified > li.active .app-menu a:hover,
+.wm-app .nav-tabs > li.active .app-popover-wrapper a:hover,
+.wm-app .nav-justified > li.active .app-popover-wrapper a:hover {
   border-color: transparent transparent #d9534f;
   color: #fff;
   background-color: transparent;
   border-bottom-width: 3px;
+}
+.wm-app .nav-tabs.nav-stacked,
+.wm-app .nav-justified.nav-stacked {
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 .wm-app .tab-content {
   background-color: #15202D;
@@ -7056,6 +7168,14 @@ button.wm-app .close {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   color: #adb7c2;
 }
+.wm-app .popover .app-panel,
+.wm-app .popover .app-accordion {
+  margin-left: 0;
+  margin-right: 0;
+}
+.wm-app .popover .popover-content {
+  background-color: #15202D;
+}
 .wm-app .carousel-control.left,
 .wm-app .carousel-control.right {
   background-image: none;
@@ -7070,8 +7190,11 @@ button.wm-app .close {
 .wm-app .app-card {
   background-color: #15202D;
 }
+.wm-app .app-card .app-card-footer .btn-group .btn:hover {
+  color: #d9534f;
+}
 .wm-app .app-livelist .media {
-  background-color: transparent;
+  background-color: #15202D;
   border-bottom: 1px solid #333;
   padding: 6px 12px;
   margin-top: 0;
@@ -7083,6 +7206,9 @@ button.wm-app .close {
 .wm-app .app-livelist.panel {
   margin: 0;
   box-shadow: none;
+}
+.wm-app .app-livelist.panel .panel-heading {
+  border-bottom-color: #333;
 }
 .wm-app .app-livelist .app-livelist-container li.app-list-item.active .app-livelist .app-livelist-container li.app-list-item {
   color: inherit;
@@ -7148,22 +7274,71 @@ button.wm-app .close {
 .wm-app .app-spinner .spinner-message {
   background-color: transparent;
   border-color: transparent;
-  top: 30%;
-  width: 150px;
-  height: 150px;
+  top: 50%;
+  margin-top: -4em;
 }
 .wm-app .app-spinner .spinner-image {
-  background: transparent url('images/loader.svg') center center no-repeat !important;
+  background: transparent url('images/loader.svg') center center no-repeat;
   animation: 0;
   -webkit-animation: 0;
   color: transparent;
+  background-size: 100%;
+  width: 80px;
+  height: 80px;
 }
 .wm-app .progress {
   border-radius: 0;
   box-shadow: none;
+  /****Progress circle***/
+}
+.wm-app .progress.app-progress.circle {
+  /***Progress circle text color***/
+}
+.wm-app .progress.app-progress.circle path:last-of-type {
+  stroke: #d9534f;
+}
+.wm-app .progress.app-progress.circle circle-progress svg path:last-of-type {
+  stroke: #d9534f;
+}
+.wm-app .progress.app-progress.circle.progress-circle-success svg path:last-of-type {
+  stroke: #9c0;
+}
+.wm-app .progress.app-progress.circle.progress-circle-info svg path:last-of-type {
+  stroke: #34aadc;
+}
+.wm-app .progress.app-progress.circle.progress-circle-warning svg path:last-of-type {
+  stroke: #fc0;
+}
+.wm-app .progress.app-progress.circle.progress-circle-danger svg path:last-of-type {
+  stroke: #f44;
+}
+.wm-app .progress.app-progress.circle .progress-text,
+.wm-app .progress.app-progress.circle text tspan {
+  color: #fff;
+  fill: #fff;
 }
 .wm-app .app-calendar {
   background-color: #15202D;
+}
+.wm-app .app-calendar .well.well-sm {
+  background-color: #15202D;
+  padding: 0;
+  margin: 0;
+}
+.wm-app .app-calendar .well.well-sm tr:nth-child(2) th {
+  padding: 10px 12px;
+}
+.wm-app .app-calendar .well.well-sm tr:nth-child(2) th:first-child {
+  padding-left: 20px;
+}
+.wm-app .app-calendar .well.well-sm tr:nth-child(2) th:last-child {
+  padding-right: 20px;
+}
+.wm-app .app-calendar .well.well-sm tr td:first-child {
+  padding-left: 10px;
+}
+.wm-app .app-calendar .well.well-sm tr td:last-child {
+  padding-right: 10px;
 }
 .wm-app .app-calendar .fc .fc-state-default {
   color: #333;
@@ -7213,6 +7388,12 @@ button.wm-app .close {
 .wm-app .app-datetime .dropdown-menu,
 .wm-app .app-timeinput .dropdown-menu {
   color: #adb7c2;
+}
+.wm-app .app-calendar table,
+.wm-app .app-date table,
+.wm-app .app-datetime table,
+.wm-app .app-timeinput table {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .wm-app .app-calendar thead tr th .btn.uib-left,
 .wm-app .app-date thead tr th .btn.uib-left,
@@ -7309,6 +7490,42 @@ button.wm-app .close {
 .wm-app .app-datetime thead tr th .uib-right,
 .wm-app .app-timeinput thead tr th .uib-right {
   text-align: right;
+}
+.wm-app .app-calendar thead tr th button.btn-default,
+.wm-app .app-date thead tr th button.btn-default,
+.wm-app .app-datetime thead tr th button.btn-default,
+.wm-app .app-timeinput thead tr th button.btn-default {
+  color: #fff;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  font-size: 1.24em;
+  padding: 1.4em 1em;
+  text-transform: uppercase;
+}
+.wm-app .app-calendar thead tr th button.btn-default:hover,
+.wm-app .app-date thead tr th button.btn-default:hover,
+.wm-app .app-datetime thead tr th button.btn-default:hover,
+.wm-app .app-timeinput thead tr th button.btn-default:hover,
+.wm-app .app-calendar thead tr th button.btn-default:focus,
+.wm-app .app-date thead tr th button.btn-default:focus,
+.wm-app .app-datetime thead tr th button.btn-default:focus,
+.wm-app .app-timeinput thead tr th button.btn-default:focus,
+.wm-app .app-calendar thead tr th button.btn-default:active,
+.wm-app .app-date thead tr th button.btn-default:active,
+.wm-app .app-datetime thead tr th button.btn-default:active,
+.wm-app .app-timeinput thead tr th button.btn-default:active,
+.wm-app .app-calendar thead tr th button.btn-default:active:hover,
+.wm-app .app-date thead tr th button.btn-default:active:hover,
+.wm-app .app-datetime thead tr th button.btn-default:active:hover,
+.wm-app .app-timeinput thead tr th button.btn-default:active:hover,
+.wm-app .app-calendar thead tr th button.btn-default:active:focus,
+.wm-app .app-date thead tr th button.btn-default:active:focus,
+.wm-app .app-datetime thead tr th button.btn-default:active:focus,
+.wm-app .app-timeinput thead tr th button.btn-default:active:focus {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.01);
+  border-color: transparent;
 }
 .wm-app .app-calendar tbody .btn-default,
 .wm-app .app-date tbody .btn-default,
@@ -7425,20 +7642,6 @@ button.wm-app .close {
   text-transform: uppercase;
   color: #fff;
 }
-.wm-app .app-date table,
-.wm-app .app-datetime table {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.wm-app .app-date .dropdown-menu,
-.wm-app .app-datetime .dropdown-menu {
-  border: 1px solid transparent;
-  padding: 0;
-}
-.wm-app .app-date .dropdown-menu li:last-child,
-.wm-app .app-datetime .dropdown-menu li:last-child {
-  padding: 1.2em;
-  overflow: auto !important;
-}
 .wm-app .app-date strong,
 .wm-app .app-datetime strong {
   font-weight: normal;
@@ -7447,20 +7650,20 @@ button.wm-app .close {
 .wm-app .app-datetime table {
   outline: none;
 }
-.wm-app .app-date thead,
-.wm-app .app-datetime thead {
+.wm-app .app-date .uib-datepicker thead,
+.wm-app .app-datetime .uib-datepicker thead {
   background-color: #d9534f;
 }
-.wm-app .app-date thead tr:nth-child(2),
-.wm-app .app-datetime thead tr:nth-child(2) {
+.wm-app .app-date .uib-datepicker thead tr:nth-child(2),
+.wm-app .app-datetime .uib-datepicker thead tr:nth-child(2) {
   background-color: rgba(0, 0, 0, 0.1);
 }
-.wm-app .app-date thead tr:nth-child(2) th:first-child,
-.wm-app .app-datetime thead tr:nth-child(2) th:first-child {
+.wm-app .app-date .uib-datepicker thead tr:nth-child(2) th:first-child,
+.wm-app .app-datetime .uib-datepicker thead tr:nth-child(2) th:first-child {
   padding: 10px 0 10px 20px;
 }
-.wm-app .app-date thead tr:nth-child(2) th:last-child,
-.wm-app .app-datetime thead tr:nth-child(2) th:last-child {
+.wm-app .app-date .uib-datepicker thead tr:nth-child(2) th:last-child,
+.wm-app .app-datetime .uib-datepicker thead tr:nth-child(2) th:last-child {
   padding: 10px 20px 10px 0;
 }
 .wm-app .app-date .uib-daypicker tbody .btn-default,
@@ -7480,22 +7683,6 @@ button.wm-app .close {
 .wm-app .app-datetime .uib-daypicker tbody .btn-default:after {
   bottom: -6px;
   color: #d9534f;
-}
-.wm-app .app-date tbody tr td:first-child,
-.wm-app .app-datetime tbody tr td:first-child {
-  padding-left: 20px;
-}
-.wm-app .app-date tbody tr td:last-child,
-.wm-app .app-datetime tbody tr td:last-child {
-  padding-right: 20px;
-}
-.wm-app .app-date tbody tr:first-child td,
-.wm-app .app-datetime tbody tr:first-child td {
-  padding-top: 15px;
-}
-.wm-app .app-date tbody tr:last-child td,
-.wm-app .app-datetime tbody tr:last-child td {
-  padding-bottom: 15px;
 }
 .wm-app .app-date tbody .btn-default.active,
 .wm-app .app-datetime tbody .btn-default.active,
@@ -7541,6 +7728,21 @@ button.wm-app .close {
   font-size: 1.1em;
   box-shadow: none;
 }
+.wm-app datepicker thead {
+  background: #d9534f;
+  color: #fff;
+}
+.wm-app datepicker thead tr:nth-child(2) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.wm-app datepicker tbody .btn.btn-sm {
+  font-size: 1em;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  padding: 0;
+}
 .wm-app #toast-container .toast {
   border-radius: 0;
 }
@@ -7548,7 +7750,7 @@ button.wm-app .close {
   font-size: 0.8em;
 }
 .wm-app #toast-container .toast .toast-message {
-  font-size: 0.7em;
+  font-size: 1em;
 }
 .wm-app .app-ratings .rating-style > label:hover,
 .wm-app .app-ratings .rating-style > label:hover ~ label {
@@ -7569,7 +7771,7 @@ button.wm-app .close {
 .wm-app .form-group .control-label.text-danger {
   color: #f44;
 }
-.wm-app .form-group .ng-touched.ng-invalid-required {
+.wm-app .form-group .ng-touched.ng-invalid .form-control {
   border-color: transparent;
   background-image: none;
   border-bottom: 2px solid #f44;
@@ -7586,4 +7788,10 @@ button.wm-app .close {
 .wm-app .checkbox input,
 .wm-app .radio input {
   display: block;
+}
+.wm-app .android-spinner {
+  background-color: #15202D;
+}
+.wm-app .android-spinner path {
+  stroke: #d9534f;
 }

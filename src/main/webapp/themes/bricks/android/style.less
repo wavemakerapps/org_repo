@@ -31,6 +31,11 @@
   @nav-tabs-color-hover: @brand-primary;
   @nav-tabs-bg-color: #273647;
 
+  @wm-app-chip-bg: #333;
+  
+  // device spinner
+  @app-spinner-bg: @body-bg;
+
   //Calendar
   @wm-calendar-bg-color: #fff;
   @wm-calendar-header-color: #adadad;
@@ -53,6 +58,9 @@
      color: inherit;
      border-color: transparent;
      background-color: transparent;
+     &:hover, &:focus {
+        color: #777;
+     }
   }
 
   //Label Styles: Donot remove
@@ -87,6 +95,10 @@
     }
   }
 
+  .close {
+    opacity: 1;
+    color: @component-active-color;
+  }
 /*******************************************************************************************/
 /***************************************     LAYOUTS     ***********************************/
 /*******************************************************************************************/
@@ -126,7 +138,10 @@
       }
     }
     .navbar-btn {
+      line-height: 35pt;
       color: inherit;
+      margin-top: 0;
+      margin-bottom: 0;
       background-color: inherit;
       &:hover , &:focus {
         color: inherit;
@@ -185,7 +200,7 @@
   .app-nav {
     .app-nav-item {
       border-bottom: 1px @wm-header-border-color solid;
-      a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover a {
+      a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover-wrapper a {
         letter-spacing: .025em;
         font-weight: bold;
         padding: 1em;
@@ -240,6 +255,48 @@
     }
   }
 
+  .nav-pills {
+    > li {
+      .dropdown a.dropdown-toggle, .app-popover-wrapper a {
+         &:hover, &:focus {
+            text-decoration: none;
+            color: @nav-pills-active-link-hover-color;
+            background-color: @nav-pills-active-link-hover-bg;
+         }
+      }
+      &.active {
+         .dropdown a.dropdown-toggle, .app-popover-wrapper a {
+            color: @nav-pills-active-link-hover-color;
+            background-color: @nav-pills-active-link-hover-bg;
+            &:hover, &:focus {
+              color: @nav-pills-active-link-hover-color;
+              background-color: @nav-pills-active-link-hover-bg;
+            }
+         }
+      }
+    }
+  }
+
+  .nav.app-chips {
+    > li {
+      .app-chip {
+        background-color: @wm-app-chip-bg;
+      }
+    }
+  }
+  //Chart text styles override
+  .app-chart {
+    .nvd3 text {
+      fill: @component-active-color;
+    }
+  }
+  //App slider styles override
+  .app-slider {
+    input[type='range']::-webkit-slider-thumb {
+      background-color: @brand-primary;
+    }
+  }
+
 //Mobile segmented control for android it should look like tabs
   .app-segmented-control {
     > .btn-group {
@@ -269,11 +326,11 @@
   }
 
 //Tabs
-  .nav-tabs {
+  .nav-tabs, .nav-justified {
     border-bottom-color: @nav-tabs-bg-color;
     background-color: @nav-tabs-bg-color;
     > li {
-      > a, .app-menu a  {
+      > a, .app-menu a, .app-popover-wrapper a  {
         color: @nav-tabs-active-link-hover-color;
         background-color: transparent;
         border-bottom-color: transparent;
@@ -295,7 +352,7 @@
         }
       }
       &.active {
-        > a, .app-menu a {
+        > a, .app-menu a, .app-popover-wrapper a {
           border-color: transparent transparent @nav-tabs-active-link-hover-border-color;
           color: @nav-tabs-active-link-hover-color;
           background-color: transparent;
@@ -309,6 +366,10 @@
         }
       }
 
+    }
+    &.nav-stacked {
+      white-space: pre-wrap;
+      word-break: break-word;
     }
   }
 
@@ -370,6 +431,13 @@
     border-radius: @border-radius-base;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
     color: @text-color;
+    .app-panel, .app-accordion {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .popover-content {
+      background-color: @body-bg;
+    }
   }
 
 //Carousel
@@ -386,6 +454,13 @@
   //Card Styles
   .app-card {
     background-color: @body-bg;
+    .app-card-footer {
+       .btn-group .btn {
+         &:hover {
+            color: @link-color;
+         }
+       }
+    }
   }
 /*******************************************************************************************/
 /***************************************List Widgets**********************************/
@@ -406,6 +481,9 @@
 	&.panel {
 		margin: 0;
 		box-shadow: none;
+		.panel-heading {
+		    border-bottom-color: @gray-base;
+		}
     }
     //handles list stylings having list within a list
     .app-livelist-container {
@@ -503,15 +581,17 @@
       .spinner-message {
          background-color: transparent;
          border-color: transparent;
-         top: 30%;
-         width: 150px;
-         height: 150px;
+         top: 50%;
+         margin-top: -4em;
       }
       .spinner-image {
-         background: transparent url('images/loader.svg') center center no-repeat !important;
+         background: transparent url('images/loader.svg') center center no-repeat;
          animation: 0;
          -webkit-animation: 0;
          color: transparent;
+         background-size: 100%;
+         width: 80px;
+         height: 80px;
       }
    }
 
@@ -519,11 +599,72 @@
   .progress {
     border-radius: 0;
     box-shadow: none;
+    /****Progress circle***/
+    &.app-progress.circle {
+      path:last-of-type {
+        stroke: @brand-primary;
+      }
+      circle-progress {
+        svg path:last-of-type {
+          stroke: @brand-primary;
+        }
+      }
+      &.progress-circle-success {
+        svg path:last-of-type {
+          stroke: @brand-success;
+        }
+      }
+      &.progress-circle-info {
+          svg path:last-of-type {
+            stroke: @brand-info;
+          }
+      }
+      &.progress-circle-warning {
+          svg path:last-of-type {
+            stroke: @brand-warning;
+          }
+      }
+      &.progress-circle-danger {
+          svg path:last-of-type {
+            stroke: @brand-danger;
+          }
+      }
+      /***Progress circle text color***/
+      .progress-text, text tspan {
+        color: @component-active-color;
+        fill: @component-active-color;
+      }
+    }
   }
 
   //Calendar
   .app-calendar {
     background-color: @body-bg;
+    //Styles for runtime
+    .well.well-sm {
+      background-color: @body-bg;
+      padding: 0;
+      margin: 0;
+      tr:nth-child(2) th {
+        padding: 10px 12px;
+
+        &:first-child {
+          padding-left: 20px;
+        }
+        &:last-child {
+          padding-right: 20px;
+        }
+      }
+      tr td {
+        &:first-child {
+          padding-left: 10px;
+        }
+        &:last-child {
+          padding-right: 10px;
+        }
+      }
+    }
+    //Styles for editor
     .fc {
       .fc-state-default {
           color: @btn-default-color;
@@ -586,8 +727,12 @@
     .dropdown-menu {
       color: @text-color;
     }
+    table {
+      background-color: rgba(0,0,0,0.5);
+    }
 
     thead {
+    //Uib styles for studio
       tr {
         th {
           .btn.uib-left, .btn.uib-right, .btn.uib-title {
@@ -609,6 +754,20 @@
           }
           .uib-right {
             text-align: right;
+          }
+          button.btn-default {
+              color: @component-active-color;
+              background: transparent;
+              border-color: transparent;
+              box-shadow: none;
+              font-size: 1.24em;
+              padding: 1.4em 1em;
+              text-transform: uppercase;
+              &:hover, &:focus, &:active, &:active:hover, &:active:focus {
+                color: @component-active-color;
+                background-color: rgba(0,0,0,.01);
+                border-color: transparent;
+              }
           }
         }
       }
@@ -649,20 +808,6 @@
 
   //styling for the popup calendar actions
   .app-date, .app-datetime {
-    table {
-      background-color: rgba(0,0,0,0.5);
-    }
-    .dropdown-menu {
-      border: 1px solid transparent;
-      padding: 0;
-      li {
-        &:last-child {
-          padding: 1.2em;
-          overflow: auto !important;
-        }
-      }
-    }
-
     strong {
       font-weight: normal;
     }
@@ -671,19 +816,21 @@
       outline: none;
     }
 
-    thead {
-       background-color: @component-active-bg;
-       tr:nth-child(2) {
-          background-color: @wm-datepicker-header-bg;
-          th {
-              &:first-child {
-                 padding: 10px 0 10px 20px;
+    .uib-datepicker {
+        thead {
+           background-color: @component-active-bg;
+           tr:nth-child(2) {
+              background-color: @wm-datepicker-header-bg;
+              th {
+                  &:first-child {
+                     padding: 10px 0 10px 20px;
+                  }
+                  &:last-child {
+                     padding: 10px 20px 10px 0;
+                  }
               }
-              &:last-child {
-                 padding: 10px 20px 10px 0;
-              }
-          }
-       }
+           }
+        }
     }
     .uib-daypicker {
       tbody{
@@ -707,26 +854,6 @@
     }
 
     tbody {
-        tr {
-           td {
-              &:first-child {
-                 padding-left: 20px;
-              }
-              &:last-child {
-                 padding-right: 20px;
-              }
-           }
-           &:first-child {
-             td {
-                padding-top: 15px;
-             }
-           }
-          &:last-child {
-            td {
-              padding-bottom: 15px;
-            }
-          }
-        }
         .btn-default {
            &.active, &:focus {
               background-color: @component-active-bg;
@@ -761,6 +888,26 @@
       }
     }
   }
+
+  datepicker {
+    thead {
+      background: @component-active-bg;
+      color: @component-active-color;
+      tr:nth-child(2) {
+        background-color: @wm-datepicker-header-bg;
+      }
+    }
+    tbody {
+      .btn.btn-sm {
+        font-size: 1em;
+        border-radius: 50%;
+        height: 42px;
+        width: 42px;
+        text-align: center;
+        padding: 0;
+      }
+    }
+  }
   //Toaster
   #toast-container {
      .toast{
@@ -770,7 +917,7 @@
         }
 
         .toast-message {
-        font-size: 0.7em;
+        font-size: 1em;
         }
      }
   }
@@ -802,7 +949,7 @@
     .text-danger, .control-label.text-danger {
       color: @brand-danger;
     }
-    .ng-touched.ng-invalid-required {
+    .ng-touched.ng-invalid .form-control {
       border-color: transparent;
       background-image: none;
       border-bottom: 2px solid @brand-danger;
@@ -817,6 +964,12 @@
     padding-left: 1em;
     input {
       display: block;
+    }
+  }
+  .android-spinner {
+    background-color: @app-spinner-bg;
+    path {
+      stroke: @brand-primary;
     }
   }
 }
