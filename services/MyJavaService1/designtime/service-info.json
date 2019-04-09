@@ -1,7 +1,0 @@
-{
-  "id" : "MyJavaService1",
-  "type" : "JavaService",
-  "packageNames" : [ "com.mobile_widgets_variables.myjavaservice1" ],
-  "serviceClassNames" : [ "com.mobile_widgets_variables.myjavaservice1.MyJavaService1" ],
-  "title" : "MyJavaService1"
-}
