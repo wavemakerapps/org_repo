@@ -1,0 +1,124 @@
+{
+  "Add" : {
+    "_id" : "wm-Add-wm.ServiceVariable-1491813663332",
+    "name" : "Add",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Add.intA",
+      "value" : "bind:Widgets.text1.datavalue"
+    }, {
+      "target" : "Add.intB",
+      "value" : "bind:Widgets.text2.datavalue"
+    } ],
+    "type" : "com.mobile_live_widgets_prod.services.calculator.AddResponse",
+    "service" : "Calculator",
+    "operation" : "add",
+    "operationId" : "CalculatorController_add",
+    "operationType" : "post",
+    "serviceType" : "SoapService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Calculator"
+  },
+  "Divide" : {
+    "_id" : "wm-Divide-wm.ServiceVariable-1491813820106",
+    "name" : "Divide",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "intA",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "intB",
+      "value" : "bind:Widgets.text2.datavalue",
+      "type" : "integer"
+    } ],
+    "type" : "com.mobile_live_widgets_prod.services.calculator.DivideResponse",
+    "service" : "Calculator",
+    "operation" : "divide",
+    "operationId" : "CalculatorController_divide",
+    "operationType" : "get",
+    "serviceType" : "SoapService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Calculator"
+  },
+  "Multiply" : {
+    "_id" : "wm-Multiply-wm.ServiceVariable-1491813868451",
+    "name" : "Multiply",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "intA",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "intB",
+      "value" : "bind:Widgets.text2.datavalue",
+      "type" : "integer"
+    } ],
+    "type" : "com.mobile_live_widgets_prod.services.calculator.MultiplyResponse",
+    "service" : "Calculator",
+    "operation" : "multiply",
+    "operationId" : "CalculatorController_multiply",
+    "operationType" : "get",
+    "serviceType" : "SoapService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Calculator"
+  },
+  "Substract" : {
+    "_id" : "wm-serviceVariable1-wm.ServiceVariable-1491813753051",
+    "name" : "Substract",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "intA",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "intB",
+      "value" : "bind:Widgets.text2.datavalue",
+      "type" : "integer"
+    } ],
+    "type" : "com.mobile_live_widgets_prod.services.calculator.SubtractResponse",
+    "service" : "Calculator",
+    "operation" : "subtract",
+    "operationId" : "CalculatorController_subtract",
+    "operationType" : "get",
+    "serviceType" : "SoapService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Calculator"
+  }
+}

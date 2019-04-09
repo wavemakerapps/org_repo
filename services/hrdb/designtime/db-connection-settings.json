@@ -1,0 +1,43 @@
+{
+  "username" : "sa",
+  "password" : "7b6a43524a78700d662158",
+  "url" : "jdbc:hsqldb:file:{WebAppRoot}/WEB-INF/data/hrdb;shutdown=true;ifexists=true;hsqldb.lock_file=false;",
+  "driverClass" : "org.hsqldb.jdbcDriver",
+  "dialect" : "org.hibernate.dialect.HSQLDialect",
+  "serviceId" : "hrdb",
+  "packageName" : "com.hrdb",
+  "dbType" : "HSQLDB",
+  "host" : "localhost",
+  "dbName" : "hrdb",
+  "port" : "",
+  "schemaName" : "PUBLIC",
+  "tableFilter" : [ {
+    "table" : "DEPARTMENT",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "EMPLOYEE",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "USER",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "VACATION",
+    "schema" : "PUBLIC"
+  } ],
+  "schemaFilter" : [ ".*" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : "",
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : true,
+    "reason" : "MIGRATION_FAILED",
+    "message" : "Source code re-generation needed to add new export API."
+  },
+  "readOnly" : true
+}

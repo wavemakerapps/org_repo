@@ -1,0 +1,53 @@
+[ {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "FeedServiceVar",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ListWithQueryServiceVar",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Livefilter",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Liveform",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ProcedureServiceVar",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Rest_Service_var",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SoapServiceVariable",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "WebSocketVar",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "templ",
+  "type" : "PAGE",
+  "params" : [ ]
+} ]

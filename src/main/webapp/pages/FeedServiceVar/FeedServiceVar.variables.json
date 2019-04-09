@@ -1,0 +1,30 @@
+{
+  "FeedServiceGetFeed" : {
+    "_id" : "wm-FeedServiceGetFeed-wm.ServiceVariable-1491813926252",
+    "name" : "FeedServiceGetFeed",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "feedURL",
+      "value" : "http://sports.espn.go.com/espn/rss/news",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.runtime.feed.model.Feed",
+    "service" : "FeedService",
+    "operation" : "getFeed",
+    "operationId" : "FeedServiceController_getFeed",
+    "operationType" : "get",
+    "serviceType" : "FeedService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "FeedService"
+  }
+}

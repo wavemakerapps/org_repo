@@ -1,0 +1,10 @@
+<wm-page data-ng-controller="WebSocketVarPageController" name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="WebSocket Variable"></wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-chart type="Pie" title="Pie Chart" height="250px" iconclass="wi wi-pie-chart" name="chart1" dataset="bind:Variables.webSocketVariable1.dataSet" xaxisdatakey="time" yaxisdatakey="value"></wm-chart> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar dataset="home,star,music" name="mobile_tabbar1"></wm-mobile-tabbar> 
+</wm-page>

@@ -1,0 +1,18 @@
+{
+  "webSocketVariable1" : {
+    "_id" : "wm-webSocketVariable1-wm.WebSocketVariable-1491815584042",
+    "name" : "webSocketVariable1",
+    "owner" : "Page",
+    "category" : "wm.WebSocketVariable",
+    "dataBinding" : [ ],
+    "service" : "wavemakeronline",
+    "operationId" : "wavemakeronline_WebSocketServiceVirtualController-invoke",
+    "dataSet" : [ ],
+    "type" : "wavemakeronline.RootResponse",
+    "isDefault" : false,
+    "isList" : false,
+    "startUpdate" : true,
+    "dataUpdateStrategy" : "refresh",
+    "dataLimit" : 20
+  }
+}

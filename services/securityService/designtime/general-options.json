@@ -1,0 +1,49 @@
+{
+  "enforceSecurity" : true,
+  "loginConfig" : {
+    "type" : "PAGE",
+    "pageName" : "Login",
+    "sessionTimeout" : {
+      "type" : "PAGE",
+      "pageName" : "Login",
+      "timeoutValue" : 30
+    }
+  },
+  "rememberMeConfig" : null,
+  "sslConfig" : {
+    "sslPort" : 443,
+    "useSSL" : false,
+    "excludedUrls" : null
+  },
+  "xssConfig" : {
+    "enforceXssSecurity" : false,
+    "policyFile" : "wm-xss-policies.xml",
+    "xssFilterStrategy" : "NONE",
+    "policyType" : "IMPORT"
+  },
+  "csrfConfig" : {
+    "enforceCsrfSecurity" : false,
+    "headerName" : "X-WM-XSRF-TOKEN"
+  },
+  "corsConfig" : {
+    "enabled" : false,
+    "maxAge" : 1600,
+    "pathEntries" : [ {
+      "name" : "root",
+      "path" : "/**",
+      "allowedOrigins" : "*"
+    } ],
+    "allowCredentials" : false
+  },
+  "tokenAuthConfig" : {
+    "enabled" : true,
+    "parameter" : "WM_AUTH_TOKEN",
+    "tokenValiditySeconds" : 1800
+  },
+  "authProviders" : [ "DEMO" ],
+  "frameOptions" : {
+    "enabled" : "true",
+    "mode" : "SAMEORIGIN",
+    "allowFromUrl" : null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Procedure_Service_Variable" : {
+    "_id" : "wm-Procedure_Service_Variable-wm.ServiceVariable-1491809374456",
+    "name" : "Procedure_Service_Variable",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "B_ADDR",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "B_COUNT",
+      "value" : "bind:Widgets.text2.datavalue",
+      "type" : "integer"
+    } ],
+    "type" : "com.hrdb.models.procedure.ProcDataResponse",
+    "service" : "hrdb",
+    "operation" : "executeProc_data",
+    "operationId" : "ProcedureExecutionController_executeProc_data",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "ProcedureExecution"
+  }
+}

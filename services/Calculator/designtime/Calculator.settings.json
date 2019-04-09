@@ -1,0 +1,14 @@
+{
+  "httpBasicAuthUsername" : "",
+  "httpBasicAuthPassword" : "",
+  "endpointAddress" : "http://www.dneonline.com/calculator.asmx",
+  "connectionTimeout" : 10000,
+  "requestTimeout" : 10000,
+  "soapActionURI" : null,
+  "httpHeaders" : { },
+  "packageName" : "com.mobile_live_widgets_prod.services.calculator",
+  "wsdlLocation" : "",
+  "wsdlSource" : "FILE",
+  "bindingsFile" : "",
+  "wsdlFile" : "Calculator.wsdl"
+}

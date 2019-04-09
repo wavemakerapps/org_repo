@@ -1,0 +1,28 @@
+<wm-partial data-ng-controller="CommonPageController" name="CommonPage"> 
+    <wm-view name="loginDialogView" class="dialog-view"> 
+        <wm-logindialog modal="true" name="CommonLoginDialog" iconclass="wi wi-sign-in" title="Login" on-submit="Actions.loginAction.invoke()" on-error="CommonLoginDialogError($event, $scope)" on-success="CommonLoginDialogSuccess($event, $scope)" closable="false"> 
+            <wm-form name="loginform"> 
+                <wm-message scopedataset="loginMessage" class="app-login-dialog-message" name="loginmessage"></wm-message> 
+                <wm-composite name="usernamefield"> 
+                    <wm-label caption="Username" class="col-xs-4 control-label" name="usernamelabel"></wm-label> 
+                    <wm-text placeholder="Enter username" class="app-login-dialog-username" name="usernametext" autocomplete="off" autocorrect="off" autocapitalize="off"></wm-text> 
+                </wm-composite> 
+                <wm-composite name="passwordfield"> 
+                    <wm-label caption="Password" class="col-xs-4 control-label" name="passwordlabel"></wm-label> 
+                    <wm-text type="password" placeholder="Enter password" class="app-login-dialog-password" name="passwordtext" autocomplete="off" autocorrect="off" autocapitalize="off"></wm-text> 
+                </wm-composite> 
+            </wm-form> 
+            <wm-dialogactions> 
+                <wm-button class="btn-primary" caption="Sign in" data-role="loginbutton"></wm-button> 
+            </wm-dialogactions> 
+        </wm-logindialog> 
+    </wm-view> 
+    <wm-view name="CommonAlertDialogView" class="dialog-view"> 
+        <wm-alertdialog name="CommonAlertDialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()" on-close="variableOnClose()"> 
+        </wm-alertdialog> 
+    </wm-view> 
+    <wm-view name="CommonConfirmDialogView" class="dialog-view"> 
+        <wm-confirmdialog name="CommonConfirmDialog" controller="NotificationDialogController" notificationdialog="confirm" message="{{notification.text}}" title="{{notification.title}}" oktext="{{notification.okButtonText}}" canceltext="{{notification.cancelButtonText}}" on-ok="variableOnOk()" on-cancel="variableOnCancel()"> 
+        </wm-confirmdialog> 
+    </wm-view> 
+</wm-partial>

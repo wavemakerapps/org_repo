@@ -1,0 +1,24 @@
+{
+  "name" : "hrdb",
+  "entities" : [ {
+    "name" : "USER",
+    "pullConfig" : {
+      "size" : 100,
+      "filter" : [ {
+        "attributeName" : "userId",
+        "attributeValue" : 10,
+        "attributeType" : "INTEGER",
+        "filterCondition" : "EQUALS"
+      } ],
+      "orderBy" : null,
+      "maxNumberOfRecords" : 100,
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  } ]
+}
