@@ -20,20 +20,6 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/MyJavaService/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/MyJavaService1/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
                 <directory>services/hrdb/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -184,8 +170,6 @@
                         <configuration>
                             <sources>
                                 <source>services/FileService/src</source>
-                                <source>services/MyJavaService/src</source>
-                                <source>services/MyJavaService1/src</source>
                                 <source>services/hrdb/src</source>
                                 <source>services/ipify/src</source>
                                 <source>services/randomuser/src</source>
