@@ -1,0 +1,822 @@
+/*START - Android Theme Customizations*/
+
+
+.wm-app  {
+  @import "../../../../components/bootstrap/less/bootstrap.less";
+  @import "variables";
+
+//Variables
+
+  font-size: @font-size-base;
+  color: @text-color;
+  font-family: @font-family-base;
+  background-color: @body-bg;
+
+  @wm-default-shadow-color: 0 1px 1px rgba(0, 0, 0, .4);
+
+  //header
+  @wm-header-text-color: #fff;
+  @wm-header-bg-color: @brand-primary;
+  @wm-header-border-color: rgba(255,255,255,0.1);
+
+  //Left panels
+  @wm-left-panel-btn-color: #fff;
+  @wm-left-panel-bg: @body-bg;
+  @wm-left-panel-list-border: 1px transparent solid;
+  @wm-left-panel-list-shadow-color: #000;
+  @wm-left-panel-link-hover-bg-color: rgba(0,0,0,0.3);
+  @wm-left-panel-link-hover-text-color: @brand-primary;
+
+  //Tabset
+  @nav-tabs-color-hover: @brand-primary;
+  @nav-tabs-bg-color: #273647;
+
+  //Calendar
+  @wm-calendar-bg-color: #fff;
+  @wm-calendar-header-color: #adadad;
+  @wm-calendar-text-color: #ccc;
+  @wm-datepicker-text-color: #fff;
+  @wm-datepicker-header-bg: rgba(0, 0, 0, 0.1);
+  @wm-datepicker-btn-hover-bg: #f0f0f0;
+
+
+  //Tabbar
+  @wm-mobile-tabbar-bg : #273647;
+
+  //Button
+  .btn {
+	 text-transform: uppercase;
+     outline-width: 0 !important;
+     font-size: 10pt;
+  }
+  .btn-secondary  {
+     color: inherit;
+     border-color: transparent;
+     background-color: transparent;
+  }
+
+  //Label Styles: Donot remove
+  label {
+	font-weight: normal;
+  }
+  .text-danger {
+    color: darken(@brand-danger, 20%);
+  }
+  .text-success {
+    color: darken(@brand-success, 20%);
+  }
+  .text-info {
+    color: darken(@brand-info, 20%);
+  }
+  .text-primary {
+    color: darken(@brand-primary, 20%);
+  }
+  .text-warning {
+    color: darken(@brand-warning, 20%);
+  }
+  .h1,.h2,.h3,.h4,.h5,.h6 {
+    width: 100%;
+  }
+  .dropdown-menu > li > a {
+    padding: @nav-link-padding;
+  }
+  //stylings for tile widget
+  .app-tile {
+    &.bg-danger, &.bg-success, &.bg-info, &.bg-warning {
+      color: @label-color;
+    }
+  }
+
+/*******************************************************************************************/
+/***************************************     LAYOUTS     ***********************************/
+/*******************************************************************************************/
+//content background
+  .app-content-column {
+    background-color: @body-bg;
+  }
+
+//Header
+  .app-mobile-navbar {
+	background-color: @wm-header-bg-color;
+	color: @wm-header-text-color;
+	border-bottom: 1px solid @wm-header-border-color;
+	text-transform: uppercase;
+	.navbar.searchbar {
+	  color: @wm-header-text-color;
+    }
+
+    .navbar {
+      .navbar-header {
+        .navbar-brand {
+          font-weight: normal;
+          font-size: 12pt;
+        }
+      }
+      .navbar-nav.navbar-right {
+        >li >a {
+          outline-width: 0;
+        }
+        .dropdown {
+          .dropdown-menu > li > a {
+            &:hover {
+              color: @brand-primary;
+            }
+          }
+        }
+      }
+    }
+    .navbar-btn {
+      color: inherit;
+      background-color: inherit;
+      &:hover , &:focus {
+        color: inherit;
+      }
+    }
+  }
+
+//Mobile menu panel which comes from left
+  .app-left-panel {
+    background-color: @wm-left-panel-bg;
+    border-right: @wm-left-panel-list-border;
+    box-shadow: 2px 2px 2px @wm-left-panel-list-shadow-color;
+	text-transform: uppercase;
+	width: 70%;
+    .nav {
+      li {
+        clear: both;
+        a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover a {
+          color: @wm-left-panel-btn-color;
+          border-radius: 0;
+          text-transform: uppercase;
+          border-left: 0.5em solid transparent;
+          transition: color .5s ease, background .5s ease;
+          -webkit-transition: color .5s ease, background .5s ease;
+          -moz-transition: color .5s ease, background .5s ease;
+          -ms-transition: color .5s ease, background .5s ease;
+          -o-transition: color .5s ease, background .5s ease;
+          &:hover {
+            background-color: @wm-left-panel-link-hover-bg-color;
+            border-left-color: transparent;
+            transition: color .5s ease, background .5s ease;
+            -webkit-transition: color .5s ease, background .5s ease;
+            -moz-transition: color .5s ease, background .5s ease;
+            -ms-transition: color .5s ease, background .5s ease;
+            -o-transition: color .5s ease, background .5s ease;
+          }
+          &.active {
+            border-left-color: transparent;
+            color: @wm-left-panel-link-hover-text-color;
+          }
+          .badge {
+            right: 0.5em;
+            top: 1.5em;
+          }
+        }
+        .dropdown-menu {
+          position: relative;
+          box-shadow: none;
+          border: 0;
+        }
+      }
+    }
+  }
+
+//naviagtion styles for links list in the application
+  .app-nav {
+    .app-nav-item {
+      border-bottom: 1px @wm-header-border-color solid;
+      a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover a {
+        letter-spacing: .025em;
+        font-weight: bold;
+        padding: 1em;
+        position: relative;
+        border-radius: 0;
+        line-height: 1;
+        color: @text-color;
+        &:hover {
+          text-decoration: none;
+          background-color: @wm-left-panel-link-hover-bg-color;
+        }
+        &.active {
+          background-color: transparent;
+          border-left-color: @wm-left-panel-link-hover-text-color;
+        }
+        .app-icon {
+          width: 1.2em;
+          text-align: center;
+        }
+        .caret {
+          margin-top: 0;
+          height: auto;
+        }
+      }
+
+      > .dropdown.open {
+        .dropdown-menu {
+          background-color: @panel-bg;
+          border-bottom: 1px solid @input-border;
+          box-shadow: none;
+          margin-left: 0;
+          li {
+            border-bottom: 1px @wm-header-border-color solid;
+            a {
+              padding: .93em 1em;
+            }
+          }
+          .dropdown-submenu {
+            .dropdown-menu {
+              a {
+                padding-left: 2.5em;
+              }
+            }
+          }
+        }
+      }
+      > .dropdown {
+        > a {
+          padding: .93em 1em;
+        }
+      }
+    }
+  }
+
+//Mobile segmented control for android it should look like tabs
+  .app-segmented-control {
+    > .btn-group {
+      box-shadow: 0 0px 5px @component-active-bg;
+      .btn.active {
+        color: @nav-tabs-active-link-hover-color;
+        border-color: transparent transparent @nav-tabs-active-link-hover-border-color;
+        background-color: @nav-tabs-bg-color;
+        box-shadow: none;
+		font-weight: normal;
+		
+      }
+      .btn {
+        background-color: @nav-tabs-bg-color;
+        color: @nav-tabs-active-link-hover-color;
+        border-color: transparent;
+        border-bottom-width: 2px;
+		font-weight: normal;
+        &:active, &:focus, &:hover {
+            box-shadow: none;
+        }
+      }
+      &.btn-group-justified {
+        padding: 0;
+      }
+    }
+  }
+
+//Tabs
+  .nav-tabs {
+    border-bottom-color: @nav-tabs-bg-color;
+    background-color: @nav-tabs-bg-color;
+    > li {
+      > a, .app-menu a  {
+        color: @nav-tabs-active-link-hover-color;
+        background-color: transparent;
+        border-bottom-color: transparent;
+        border-bottom-width: 3px;
+        border-radius: 0;
+        box-shadow: none;
+        margin-right: 0px;
+        text-transform: uppercase;
+		font-weight: normal;
+        &:hover {
+          color: @nav-tabs-active-link-hover-color;
+          background-color: transparent;
+          border-color: transparent;
+        }
+        .app-icon {
+          background-size: 100%;
+          margin-right: 0.417em;
+          top: 0.167em;
+        }
+      }
+      &.active {
+        > a, .app-menu a {
+          border-color: transparent transparent @nav-tabs-active-link-hover-border-color;
+          color: @nav-tabs-active-link-hover-color;
+          background-color: transparent;
+          border-bottom-width: 3px;
+          &:hover {
+            border-color: transparent transparent @nav-tabs-active-link-hover-border-color;
+            color: @nav-tabs-active-link-hover-color;;
+            background-color: transparent;
+            border-bottom-width: 3px;
+          }
+        }
+      }
+
+    }
+  }
+
+  //Tab Content
+  .tab-content {
+	background-color: @body-bg;
+    .tab-body {
+      border-color: transparent;
+    }
+  }
+
+  //tabbar
+  .navbar-default {
+     background-color: @wm-mobile-tabbar-bg;
+  }
+  .app-tabbar {
+     .navbar {
+        .navbar-nav {
+            .dropdown {
+                .dropdown-menu {
+                    background-color: @nav-tabs-bg-color;
+                }
+            }
+        }
+     }
+  }
+/*******************************************************************************************/
+/***************************************Containers Widgets**********************************/
+/*******************************************************************************************/
+//Panels
+  .panel {
+    border-width: 0;
+    box-shadow: @wm-default-shadow-color;
+    .panel-actions {
+      .dropdown-menu > li {
+        > a, > a:hover {
+          color: @text-color;
+        }
+      }
+    }
+    .panel-body {
+      padding: 0;
+    /***specific use cases when the radioset and checkboxset comes directly in the panel****/
+      > .app-radioset, > .app-checboxset {
+        li {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .app-panel, .app-accordion {
+    margin-left: @padding-base-horizontal;
+    margin-right: @padding-base-horizontal;
+    margin-bottom: 0;
+  }
+
+//Popover styles
+  .popover {
+    border-radius: @border-radius-base;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    color: @text-color;
+  }
+
+//Carousel
+  .carousel-control {
+    &.left, &.right {
+      background-image: none;
+    }
+    &.icon-prev, .icon-next, .glyphicon-chevron-left, .glyphicon-chevron-right {
+      color: grey;
+      text-shadow: none;
+    }
+  }
+
+  //Card Styles
+  .app-card {
+    background-color: @body-bg;
+  }
+/*******************************************************************************************/
+/***************************************List Widgets**********************************/
+/*******************************************************************************************/
+//App Live list. The list-group classes are set through the boostrap variable
+  .app-livelist {
+	.media {
+	  background-color: @list-group-bg;
+	  border-bottom: 1px solid @list-group-border;
+	  padding: @nav-link-padding;
+	  margin-top: 0;
+	}
+	.media-right {
+	  a, .btn{
+		color: inherit;
+	  }
+	}
+	&.panel {
+		margin: 0;
+		box-shadow: none;
+    }
+    //handles list stylings having list within a list
+    .app-livelist-container {
+      li.app-list-item {
+        &.active {
+          .app-livelist {
+            .app-livelist-container {
+              li.app-list-item {
+                color: inherit;
+                background-color: @body-bg;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+//Tree
+  .app-tree {
+    ul {
+      li {
+        span {
+          &:hover {
+            color: @gray-base;
+          }
+        }
+      }
+    }
+  }
+//App toggle
+  .app-toggle {
+    label {
+      box-shadow: @wm-default-shadow-color;
+    }
+  }
+/*******************************************************************************************/
+/***************************************Form Widgets****************************************/
+/*******************************************************************************************/
+  .app-form, .app-liveform {
+    .app-grid-layout {
+      input, select, textarea {
+        border: 0;
+      }
+      .app-grid-row {
+        border-bottom: 1px solid @input-border;
+        .app-grid-column {
+          border-right: 1px solid @input-border;
+          &:last-child {
+            border-right: 1px solid transparent;
+          }
+        }
+      }
+    }
+    .form-action, .form-action.btn-group {
+      .btn {
+        border-radius: @border-radius-base;
+        margin: 0 0.333em;
+      }
+    }
+  }
+
+//form group widget
+  .form-group {
+    margin-bottom: 0;
+    /*.app-select {
+      background-color: transparent !important;
+    }*/
+  }
+  .form-group, .app-livefilter, .app-form {
+    .app-label {
+      padding-left: 1em;
+    }
+  }
+
+//form controls
+  .form-control {
+    box-shadow: none;
+    height: @input-height-base;
+    &textarea {
+      height: (@input-height-base * 2);
+    }
+    &select {
+      padding-left: @thumbnail-padding;
+    }
+  }
+
+/*******************************************************************************************/
+/***************************************Advanced Widgets****************************************/
+/*******************************************************************************************/
+//Spinner icon
+  .app-spinner {
+   //default spinner image
+   background-color: transparent;
+      .spinner-message {
+         background-color: transparent;
+         border-color: transparent;
+         top: 30%;
+         width: 150px;
+         height: 150px;
+      }
+      .spinner-image {
+         background: transparent url('images/loader.svg') center center no-repeat !important;
+         animation: 0;
+         -webkit-animation: 0;
+         color: transparent;
+      }
+   }
+
+//Progress Bar
+  .progress {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  //Calendar
+  .app-calendar {
+    background-color: @body-bg;
+    .fc {
+      .fc-state-default {
+          color: @btn-default-color;
+          background: @btn-default-bg;
+          &.fc-state-hover, &:focus, &.fc-state-active {
+            color: @component-active-color;
+            background: @component-active-bg;
+          }
+      }
+    }
+
+    .fc-state-highlight {
+      &.fc-today {
+        background-color: @component-active-bg;
+        color: @component-active-color;
+      }
+    }
+    .fc {
+      .fc-toolbar {
+        h2 {
+          color: @text-color;
+        }
+      }
+      .fc-view-container {
+         background-color: @wm-calendar-bg-color;
+      }
+    }
+    .fc-widget-header {
+      background-color: @wm-calendar-bg-color;
+      color: @gray-base;
+    }
+    .fc-body {
+      .fc-row {
+        min-height: 3em;
+        .fc-content-skeleton {
+          padding: .8em 0;
+          td {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .fc-unthemed {
+      .fc-divider, .fc-popover, .fc-row, tbody, td, th, thead {
+        //border-color: transparent;
+      }
+    }
+  }
+
+  /*Date, DateTime & Dropdown widgets*/
+  .app-calendar, .app-date, .app-datetime, .app-timeinput {
+    //setting the margin for the group button so that it shows up over the input
+    .input-group-btn:last-child {
+      > .btn, .btn-group {
+        margin-left: 0;
+      }
+    }
+    //setting the base font color for the popup content
+    .dropdown-menu {
+      color: @text-color;
+    }
+
+    thead {
+      tr {
+        th {
+          .btn.uib-left, .btn.uib-right, .btn.uib-title {
+            color: @component-active-color;
+            background: transparent;
+            border-color: transparent;
+            box-shadow: none;
+            font-size: 1.24em;
+            padding: 1.4em 1em;
+            text-transform: uppercase;
+            &:hover, &:focus, &:active, &:active:hover, &:active:focus {
+              color: @component-active-color;
+              background-color: rgba(0,0,0,.01);
+              border-color: transparent;
+            }
+          }
+          .uib-left {
+            text-align: left;
+          }
+          .uib-right {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    tbody {
+      .btn-default, .btn {
+        background-color: transparent;
+        border-color: transparent;
+        color: @wm-datepicker-text-color;
+        width: auto;
+        box-shadow: none;
+        padding: @padding-base-horizontal;
+        &.btn-info {
+          background-color: lighten(@brand-primary, 30%);
+            color: rgba(0,0,0,0.7);
+        }
+        &:hover, &:focus, &.active:hover, &:focus:hover {
+          background-color: @component-active-bg;
+          border-color: @component-active-bg;
+          color: @component-active-color;
+          .text-info {
+            color: inherit;
+          }
+        }
+        .text-info {
+          color: @brand-primary;
+          font-weight: bold;
+        }
+      }
+    }
+    small {
+      font-size: .85em;
+      text-transform: uppercase;
+      color: @component-active-color;
+    }
+  }
+
+  //styling for the popup calendar actions
+  .app-date, .app-datetime {
+    table {
+      background-color: rgba(0,0,0,0.5);
+    }
+    .dropdown-menu {
+      border: 1px solid transparent;
+      padding: 0;
+      li {
+        &:last-child {
+          padding: 1.2em;
+          overflow: auto !important;
+        }
+      }
+    }
+
+    strong {
+      font-weight: normal;
+    }
+
+    table {
+      outline: none;
+    }
+
+    thead {
+       background-color: @component-active-bg;
+       tr:nth-child(2) {
+          background-color: @wm-datepicker-header-bg;
+          th {
+              &:first-child {
+                 padding: 10px 0 10px 20px;
+              }
+              &:last-child {
+                 padding: 10px 20px 10px 0;
+              }
+          }
+       }
+    }
+    .uib-daypicker {
+      tbody{
+        .btn-default {
+          border-radius: 50%;
+          min-width: 0;
+          height: 24pt;
+          width: 24pt;
+          vertical-align: middle;
+          text-align: center;
+          padding: 0;
+          position: relative;
+          margin-top: 5pt;
+          margin-bottom: 5pt;
+          &:after {
+            bottom: -6px;
+            color: @brand-primary;
+          }
+        }
+      }
+    }
+
+    tbody {
+        tr {
+           td {
+              &:first-child {
+                 padding-left: 20px;
+              }
+              &:last-child {
+                 padding-right: 20px;
+              }
+           }
+           &:first-child {
+             td {
+                padding-top: 15px;
+             }
+           }
+          &:last-child {
+            td {
+              padding-bottom: 15px;
+            }
+          }
+        }
+        .btn-default {
+           &.active, &:focus {
+              background-color: @component-active-bg;
+              color: @component-active-color;
+              outline-color: transparent;
+              &:hover {
+                background-color: @component-active-bg;
+              }
+              .text-info {
+                 color: @component-active-color;
+              }
+           }
+           &:hover {
+              background-color: @wm-datepicker-btn-hover-bg;
+              border-color: transparent;
+              color: rgba(0,0,0,0.5);
+           }
+        }
+        .btn-sm {
+          font-size: 1em;
+        }
+    }
+
+    .btn-group {
+      box-shadow: none;
+      .btn , & + .btn {
+        background-color: transparent;
+        border-color: transparent;
+        color: @brand-primary;
+        font-size: 1.1em;
+        box-shadow: none;
+      }
+    }
+  }
+  //Toaster
+  #toast-container {
+     .toast{
+        border-radius: 0;
+        .toast-title {
+        font-size: 0.8em;
+        }
+
+        .toast-message {
+        font-size: 0.7em;
+        }
+     }
+  }
+
+  //App-ratings
+  .app-ratings {
+     .rating-style>label:hover, .rating-style>label:hover~label {
+        color: @brand-primary;
+     }
+     & .active {
+        color: @brand-primary;
+     }
+  }
+  /***********************************************************************************************
+****************************************** Liveform ****************************************************
+************************************************************************************************/
+  .app-liveform, .app-device-liveform {
+    .form-group {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .form-group {
+    &.live-field.active {
+      .control-label {
+        color: @brand-primary;
+      }
+    }
+    .text-danger, .control-label.text-danger {
+      color: @brand-danger;
+    }
+    .ng-touched.ng-invalid-required {
+      border-color: transparent;
+      background-image: none;
+      border-bottom: 2px solid @brand-danger;
+    }
+    .help-block {
+      display: block;
+      position: relative;
+      margin-bottom: 0;
+    }
+  }
+  .checkbox, .radio {
+    padding-left: 1em;
+    input {
+      display: block;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 var _WM_APP_PROPERTIES = {
-  "activeTheme" : "mobile",
+  "activeTheme" : "bricks",
   "dateFormat" : "",
   "defaultLanguage" : "en",
   "displayName" : "Mobile_Live_Widgets_9",
