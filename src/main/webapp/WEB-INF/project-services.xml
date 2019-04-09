@@ -3,8 +3,7 @@
     <import resource="classpath:Calculator.spring.xml"/>
     <import resource="classpath:FeedService.spring.xml"/>
     <import resource="classpath:MyJavaService.spring.xml"/>
-    <import resource="classpath:MyJavaService1.spring.xml"/>
-    <import resource="classpath:MyJavaService2.spring.xml"/>
+    <import resource="classpath:MyJavaService4.spring.xml"/>
     <import resource="classpath:googleapis.spring.xml"/>
     <import resource="classpath:hrdb.spring.xml"/>
     <import resource="classpath:liveBlob.spring.xml"/>

@@ -1,7 +1,7 @@
 /*Copyright (c) 2015-2016 gmail.com All Rights Reserved.
  This software is the confidential and proprietary information of gmail.com You shall not disclose such Confidential Information and shall use it only in accordance
  with the terms of the source code license agreement you entered into with gmail.com*/
-package com.mobile_live_widgets_prod.myjavaservice2;
+package com.mobile_live_widgets_prod.myjavaservice4;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +15,7 @@ import com.wavemaker.runtime.security.SecurityService;
 import com.wavemaker.runtime.service.annotations.ExposeToClient;
 import com.wavemaker.runtime.service.annotations.HideFromClient;
 
-//import com.mobile_live_widgets_prod.myjavaservice2.model.*;
+//import com.mobile_live_widgets_prod.myjavaservice4.model.*;
 
 /**
  * This is a singleton class with all its public methods exposed as REST APIs via generated controller class.
@@ -28,9 +28,9 @@ import com.wavemaker.runtime.service.annotations.HideFromClient;
  * Complex Types/Objects will become part of the Request body in the generated API.
  */
 @ExposeToClient
-public class MyJavaService2 {
+public class MyJavaService4 {
 
-    private static final Logger logger = LoggerFactory.getLogger(MyJavaService2.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyJavaService4.class);
 
     @Autowired
     private SecurityService securityService;
@@ -54,7 +54,7 @@ public class MyJavaService2 {
             result = "Hello " + name + ", You are not authenticated yet!";
         }
         logger.debug("Returning {}", result);
-        return "result ";
+        return result;
     }
 
 }
