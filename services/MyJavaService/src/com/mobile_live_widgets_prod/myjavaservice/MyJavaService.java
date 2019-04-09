@@ -26,6 +26,8 @@ import com.wavemaker.runtime.service.annotations.HideFromClient;
  *
  * Method Parameters of type primitives (including java.lang.String) will be exposed as Query Parameters &
  * Complex Types/Objects will become part of the Request body in the generated API.
+ *
+ * NOTE: We do not recommend using method overloading on client exposed methods.
  */
 @ExposeToClient
 public class MyJavaService {
@@ -54,11 +56,7 @@ public class MyJavaService {
             result = "Hello " + name + ", You are not authenticated yet!";
         }
         logger.debug("Returning {}", result);
-        return result;
-    }
-    
-    public String testJava(String a, String b) {
-        return a+b;
+        return "result";
     }
 
 }

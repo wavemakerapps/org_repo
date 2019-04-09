@@ -41,47 +41,6 @@
           }
         }
       }
-    } ],
-    "testJava" : [ {
-      "url" : {
-        "value" : "/testJava",
-        "modified" : false
-      },
-      "method" : {
-        "value" : "GET",
-        "modified" : false
-      },
-      "accessSpecifier" : "APP_ONLY",
-      "parameters" : {
-        "a" : {
-          "name" : {
-            "value" : "a",
-            "modified" : false
-          },
-          "in" : {
-            "value" : "QUERY",
-            "modified" : false
-          },
-          "required" : {
-            "value" : false,
-            "modified" : false
-          }
-        },
-        "b" : {
-          "name" : {
-            "value" : "b",
-            "modified" : false
-          },
-          "in" : {
-            "value" : "QUERY",
-            "modified" : false
-          },
-          "required" : {
-            "value" : false,
-            "modified" : false
-          }
-        }
-      }
     } ]
   }
 }
