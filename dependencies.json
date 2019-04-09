@@ -4,8 +4,8 @@
   "artifactType" : "PREFAB",
   "artifactDependencyList" : null
 }, {
-  "name" : "bricks",
-  "version" : "2.8",
+  "name" : "blue-enterprise",
+  "version" : "2.9",
   "artifactType" : "THEME",
   "artifactDependencyList" : null
 } ]
