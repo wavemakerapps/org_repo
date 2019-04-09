@@ -43,8 +43,8 @@
       "inlinePath" : "",
       "errorMessage" : ""
     },
-    "onSuccess" : "fileUploadonSuccess($event, $scope)",
-    "onError" : "fileUploadonError($event, $scope)"
+    "onSuccess" : "fileUploadonSuccess(variable, data)",
+    "onError" : "fileUploadonError(variable, data)"
   },
   "openFileVariable" : {
     "_id" : "wm-openFileVariable-wm.DeviceVariable-1551084911465",
@@ -64,5 +64,31 @@
     "operation" : "openFile",
     "dataSet" : { },
     "fileType" : "pdf"
+  },
+  "FileServiceuploadFile" : {
+    "_id" : "wm-FileServiceuploadFile-wm.ServiceVariable-1554805730926",
+    "autoUpdate" : false,
+    "category" : "wm.ServiceVariable",
+    "controller" : "File",
+    "dataBinding" : [ {
+      "target" : "files",
+      "type" : "java.lang.String",
+      "value" : "bind:Widgets.fileupload1.selectedFiles"
+    } ],
+    "dataSet" : [ ],
+    "inFlightBehavior" : "executeLast",
+    "isDefault" : true,
+    "isList" : false,
+    "maxResults" : 20,
+    "name" : "FileServiceuploadFile",
+    "operation" : "uploadFile",
+    "operationId" : "FileController_uploadFile",
+    "owner" : "Page",
+    "saveInPhonegap" : false,
+    "service" : "FileService",
+    "serviceType" : "JavaService",
+    "startUpdate" : false,
+    "transformationRequired" : false,
+    "type" : "com.demo.fileservice.FileService.FileUploadResponse"
   }
 }

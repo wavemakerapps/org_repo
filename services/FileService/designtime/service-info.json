@@ -1,0 +1,7 @@
+{
+  "id" : "FileService",
+  "type" : "JavaService",
+  "packageNames" : [ "com.mobile_widgets_variables.fileservice" ],
+  "serviceClassNames" : [ "com.mobile_widgets_variables.fileservice.FileService" ],
+  "title" : "FileService"
+}

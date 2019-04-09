@@ -1,11 +1,11 @@
-<wm-page name="page1" data-ng-controller="file_uploadPageController"> 
+<wm-page name="page1"> 
     <wm-left-panel name="left_panel1" content="leftnav"></wm-left-panel> 
     <wm-mobile-navbar title="File upload" name="mobile_navbar1"></wm-mobile-navbar> 
     <wm-content name="content1"> 
         <wm-page-content name="page_content1" columnwidth="12"> 
             <wm-segmented-control name="segmented_control2"> 
                 <wm-segment-content name="segment_content4" caption="Widget"> 
-                    <wm-fileupload name="fileupload1" contenttype="image" service="FileService" operation="uploadFile"></wm-fileupload> 
+                    <wm-fileupload name="fileupload1" contenttype="image" on-select="Variables.FileServiceuploadFile.invoke()"></wm-fileupload> 
                     <wm-list class="list-card" name="livelist1" dataset="bind:Variables.FileServiceListFiles.dataSet" itemsperrow="xs-1 sm-2 md-3 lg-4" template="true" listclass="list-group" navigation="Basic"> 
                         <wm-listtemplate name="listtemplate1" layout="media"> 
                             <wm-card name="card1"> 

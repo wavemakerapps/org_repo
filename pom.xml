@@ -86,6 +86,48 @@
         </pluginManagement>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>profiles/${profile.props.file}</file>
+              </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>gmaven-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>add-dynamic-properties</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>if (project.properties.get('build.ui.mode') != null) {
+                                    if (project.properties.get('build.ui.mode').equalsIgnoreCase('angular')) {
+                                        project.properties.webAppDirectory = 'target/codegen/generated-app/dist'
+                                    }
+                                }
+                                if (project.properties.get('webAppDirectory') == null) {
+                                    project.properties.webAppDirectory = 'src/main/webapp'
+                                }</source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.0.1</version>
                 <configuration>
@@ -153,10 +195,21 @@
               </target>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>UI Build</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <ant antfile="${basedir}/build.xml" target="uiBuild"/>
+              </target>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
@@ -165,31 +218,6 @@
                     <fork>true</fork>
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>unpack-wmmobile-artifact</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/src/main/webapp/wmmobile</outputDirectory>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.wavemaker.runtime</groupId>
-                                    <artifactId>wavemaker-app-runtime</artifactId>
-                                    <version>${wavemaker.studio.version}</version>
-                                    <classifier>wmmobile</classifier>
-                                    <type>zip</type>
-                </artifactItem>
-              </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>com.wavemaker.app.build</groupId>
@@ -251,6 +279,67 @@
                     <version>${wavemaker.studio.version}</version>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>single-artifact</id>
+            <activation>
+                <property>
+                    <name>!separate-artifacts</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <warSourceExcludes>${wavemaker.artifacts.single.excludes}</warSourceExcludes>
+                            <webResources>
+                                <resource>
+                                    <directory>${webAppDirectory}</directory>
+                </resource>
+              </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>separate-artifacts</id>
+            <activation>
+                <property>
+                    <name>separate-artifacts</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>uiZip</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <zip basedir="${webAppDirectory}" destfile="target/${build.finalName}-ui.zip" excludes="META-INF/, WEB-INF/"/>
+                  </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <warSourceExcludes>${wavemaker.artifacts.separate.excludes}</warSourceExcludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
     <repositories>
@@ -328,12 +417,16 @@
         </dependencies>
     </dependencyManagement>
     <properties>
-        <spring.version>4.3.14.RELEASE</spring.version>
+        <wavemaker.studio.version>10.0.0.6787</wavemaker.studio.version>
+        <spring.security.version>5.0.8.RELEASE</spring.security.version>
         <profile.props.file>development.properties</profile.props.file>
-        <spring.security.version>4.2.4.RELEASE</spring.security.version>
-        <wavemaker.studio.version>9.4.0.2.6780</wavemaker.studio.version>
-        <wavemaker.studio.release.version>9.4.0.2</wavemaker.studio.release.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <wavemaker.artifacts.single.excludes>wmapp/,pages/,themes/,index.html,app.css,app.js,app.variables.json</wavemaker.artifacts.single.excludes>
+        <wavemaker.artifacts.separate.excludes>wmapp/,pages/,themes/,index.html,app.css,app.js,print.css,app.variables.json,favicon.png</wavemaker.artifacts.separate.excludes>
         <project.lib.directory>${basedir}/lib</project.lib.directory>
+        <wavemaker.artifactStaticFolder>wmmobile</wavemaker.artifactStaticFolder>
+        <wavemaker.studio.release.version>10.0.0</wavemaker.studio.release.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <wavemaker.artifactType>wmmobile</wavemaker.artifactType>
+        <spring.version>5.1.4.RELEASE</spring.version>
     </properties>
 </project>

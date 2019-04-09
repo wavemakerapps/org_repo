@@ -26,5 +26,9 @@ src/main/webapp/wmmobile/**
 target/**
 src/main/webapp/WEB-INF/dbValidations.json
 src/main/webapp/WEB-INF/prefabs/*/build/**
-
 src/main/webapp/WEB-INF/data/*.properties
+src/main/webapp/pages/*/page.min.json
+backup/**
+src/main/webapp/WEB-INF/prefabs/*/webapp/pages/page.min.json
+generated-angular-app/**
+inspection_results.json

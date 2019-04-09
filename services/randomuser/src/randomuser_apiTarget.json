@@ -1,5 +1,5 @@
 {
-  "basePath" : "${rest.randomuser.basepath}",
+  "basePath" : "${randomuser.basepath}",
   "paths" : {
     "/" : {
       "x-WM-BASE_PATH" : "/",
@@ -30,11 +30,11 @@
         "tags" : [ "RestServiceVirtualController" ],
         "consumes" : [ "application/json" ]
       },
-      "x-WM-COMPLETE_PATH" : "${rest.randomuser.scheme}://${rest.randomuser.host}${rest.randomuser.basepath}/"
+      "x-WM-COMPLETE_PATH" : "${randomuser.scheme}://${randomuser.host}${randomuser.basepath}/"
     }
   },
-  "host" : "${rest.randomuser.host}",
-  "schemes" : [ "${rest.randomuser.scheme}" ],
+  "host" : "${randomuser.host}",
+  "schemes" : [ "${randomuser.scheme}" ],
   "definitions" : {
     "dob" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "randomuser.dob",

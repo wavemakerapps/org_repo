@@ -1,0 +1,5 @@
+{
+  "id" : "ipify",
+  "type" : "RestService",
+  "title" : "ipify"
+}

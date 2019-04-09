@@ -1,5 +1,5 @@
 {
-  "basePath" : "${rest.ipify.basepath}",
+  "basePath" : "${ipify.basepath}",
   "paths" : {
     "/" : {
       "x-WM-BASE_PATH" : "/",
@@ -21,11 +21,11 @@
         "tags" : [ "RestServiceVirtualController" ],
         "consumes" : [ "application/json" ]
       },
-      "x-WM-COMPLETE_PATH" : "${rest.ipify.scheme}://${rest.ipify.host}${rest.ipify.basepath}/"
+      "x-WM-COMPLETE_PATH" : "${ipify.scheme}://${ipify.host}${ipify.basepath}/"
     }
   },
-  "host" : "${rest.ipify.host}",
-  "schemes" : [ "${rest.ipify.scheme}" ],
+  "host" : "${ipify.host}",
+  "schemes" : [ "${ipify.scheme}" ],
   "definitions" : {
     "RootResponse" : {
       "x-WM-FULLY_QUALIFIED_NAME" : "ipify.RootResponse",

@@ -1,4 +1,4 @@
-<wm-page data-ng-controller="pluginPageController" name="page1"> 
+<wm-page name="page1"> 
     <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
     <wm-mobile-navbar name="mobile_navbar1"></wm-mobile-navbar> 
     <wm-content name="content1"> 
@@ -13,7 +13,7 @@
                         <wm-label name="JobTitle" caption="bind:Variables.HrdbEmployeeData.dataSet.jobTitle" class="p text-muted"></wm-label> 
                     </wm-container> 
                     <wm-container class="media-right media-top" name="container3"> 
-                        <wm-button class="btn-transparent" iconclass="fa fa-whatsapp fa-2x" name="button1" on-tap="button1Tap($event, $scope, item, currentItemWidgets)"></wm-button> 
+                        <wm-button class="btn-transparent" iconclass="fa fa-whatsapp fa-2x" name="button1" on-tap="button1Tap($event, widget, item, currentItemWidgets)"></wm-button> 
                     </wm-container> 
                 </wm-listtemplate> 
             </wm-list> 

@@ -1,1 +1,15 @@
-{"staticVariable4":{"_id":"wm-staticVariable4-wm.Variable-1490684869586","name":"staticVariable4","owner":"Page","category":"wm.Variable","dataBinding":[],"dataSet":{"dataValue":true},"type":"boolean","isList":false,"saveInPhonegap":false}}
+{
+  "staticVariable4" : {
+    "_id" : "wm-staticVariable4-wm.Variable-1490684869586",
+    "name" : "staticVariable4",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : true
+    },
+    "type" : "boolean",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}

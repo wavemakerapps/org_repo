@@ -1,41 +1,34 @@
-Application.$controller("CommonPageController", ['$scope',
-    function ($scope) {
-        "use strict";
+var DialogService = App.getDependency("DialogService");
+/* perform any action on widgets/variables within this block */
 
-        /* perform any action on widgets/variables within this block */
-        $scope.onPageReady = function () {
-            /*
-             * variables can be accessed through '$scope.Variables' property here
-             * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
-             * $scope.Variables.loggedInUser.getData()
-             * 
-             * widgets can be accessed through '$scope.Widgets' property here
-             * e.g. to get value of text widget named 'username' use following script
-             * '$scope.Widgets.username.datavalue'
-             */
-        };
-    }
-]);
+Partial.onReady = function () {
+    /*
+     * variables can be accessed through 'Partial.Variables' property here
+     * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
+     * Partial.Variables.loggedInUser.getData()
+     * 
+     * widgets can be accessed through 'Partial.Widgets' property here
+     * e.g. to get value of text widget named 'username' use following script
+     * 'Partial.Widgets.username.datavalue'
+     */
 
-Application.$controller("CommonLoginDialogController", ["$scope", "DialogService", "$window",
-    function ($scope, DialogService, $window) {
-        "use strict";
-        $scope.ctrlScope = $scope;
+};
 
-        $scope.CommonLoginDialogError = function ($event, $isolateScope) {
-            /*
-             * Error message can be accessed from the property $isolateScope.loginMessage.caption
-             */
-        };
+Partial.CommonLoginDialog_CommonLoginDialogError = function ($event, widget) {
+    /*
+     * Error message can be accessed from the property widget.loginMessage.caption
+     */
 
-        $scope.CommonLoginDialogSuccess = function ($event, $isolateScope) {
-            /*
-             * This success handler provides a redirectUrl which is the role based url set while configuring Security service for the project.
-             * The redirectUrl can be accessed as $isolateScope.redirectUrl
-             * To navigate to the url use '$window' service as:
-             * $window.location = $isolateScope.redirectUrl
-             */
-            DialogService.hideDialog("CommonLoginDialog");
-        };
-    }
-]);
+};
+
+Partial.CommonLoginDialog_CommonLoginDialogSuccess = function ($event, widget) {
+    /*
+     * This success handler provides a redirectUrl which is the role based url set while configuring Security service for the project.
+     * The redirectUrl can be accessed as widget.redirectUrl
+     * To navigate to the url use 'window' service as:
+     * window.location = widget.redirectUrl
+     */
+
+    DialogService.hideDialog("CommonLoginDialog");
+};
+

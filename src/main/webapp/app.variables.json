@@ -46,29 +46,6 @@
     },
     "startUpdate" : true
   },
-  "FileServiceUploadFile" : {
-    "_id" : "wm-FileServiceUploadFile-wm.ServiceVariable-1491824566061",
-    "name" : "FileServiceUploadFile",
-    "owner" : "App",
-    "category" : "wm.ServiceVariable",
-    "dataBinding" : [ ],
-    "type" : "com.mobile_widgets_variables.fileservice.FileService.FileUploadResponse",
-    "service" : "FileService",
-    "operation" : "uploadFile",
-    "operationId" : "FileController_uploadFile",
-    "serviceType" : "JavaService",
-    "dataSet" : [ ],
-    "isList" : false,
-    "maxResults" : 20,
-    "designMaxResults" : 10,
-    "startUpdate" : false,
-    "autoUpdate" : true,
-    "inFlightBehavior" : "executeLast",
-    "transformationRequired" : false,
-    "saveInPhonegap" : false,
-    "isDefault" : true,
-    "controller" : "File"
-  },
   "goToPage_Barcode" : {
     "_id" : "wm-goToPage_Barcode-wm.NavigationVariable-1491824219062",
     "name" : "goToPage_Barcode",
@@ -178,22 +155,22 @@
     "owner" : "App",
     "category" : "wm.LoginVariable",
     "dataBinding" : [ {
-      "target" : "username",
-      "value" : "bind:Widgets.usernametext.datavalue",
+      "target" : "j_username",
+      "value" : "bind:Widgets.j_username.datavalue",
       "type" : "string"
     }, {
-      "target" : "password",
-      "value" : "bind:Widgets.passwordtext.datavalue",
+      "target" : "j_password",
+      "value" : "bind:Widgets.j_password.datavalue",
       "type" : "string"
     }, {
-      "target" : "rememberme",
-      "value" : "bind:Widgets.remembermecheck.datavalue",
+      "target" : "j_rememberme",
+      "value" : "bind:Widgets.j_rememberme.datavalue",
       "type" : "boolean"
     } ],
     "dataSet" : {
-      "username" : "",
-      "password" : "",
-      "rememberme" : false
+      "j_password" : "",
+      "j_rememberme" : false,
+      "j_username" : ""
     },
     "type" : "string",
     "saveInPhonegap" : false,

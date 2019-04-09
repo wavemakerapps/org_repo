@@ -9,7 +9,10 @@
       "timeoutValue" : 30
     }
   },
-  "rememberMeConfig" : null,
+  "rememberMeConfig" : {
+    "enabled" : true,
+    "tokenValiditySeconds" : 1296000
+  },
   "sslConfig" : {
     "sslPort" : 443,
     "useSSL" : false,

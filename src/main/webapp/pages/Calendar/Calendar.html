@@ -1,4 +1,4 @@
-<wm-page name="page1" data-ng-controller="CalendarPageController"> 
+<wm-page name="page1"> 
     <wm-left-panel name="left_panel1" content="leftnav"></wm-left-panel> 
     <wm-mobile-navbar title="Calendar" name="mobile_navbar1" searchbutton="true"></wm-mobile-navbar> 
     <wm-content name="content1"> 
@@ -100,8 +100,6 @@
             </wm-segmented-control> 
         </wm-page-content> 
     </wm-content> 
-    <wm-mobile-tabbar name="mobile_tabbar1" dataset="home,star,music"></wm-mobile-tabbar> 
-    <wm-view class="dialog-view" name="view1"> 
-        <wm-alertdialog title="{{notification.title}}" name="notificationalertdialog" controller="NotificationDialogController" message="{{notification.text}}" on-close="variableOnClose()" notificationdialog="alert" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()"></wm-alertdialog> 
-    </wm-view> 
+    <wm-mobile-tabbar name="mobile_tabbar1" dataset="home,star,music"></wm-mobile-tabbar>  
+    <wm-alertdialog title="bind:(notification.title)" name="notificationalertdialog" controller="NotificationDialogController" message="bind:(notification.text)" on-close="notification.onClose()" notificationdialog="alert" oktext="bind:(notification.okButtonText)" alerttype="bind:(notification.alerttype)" on-ok="notification.onOk()"></wm-alertdialog>  
 </wm-page>

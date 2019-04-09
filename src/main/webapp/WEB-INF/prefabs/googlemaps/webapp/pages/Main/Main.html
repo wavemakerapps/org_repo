@@ -1,20 +1,18 @@
-<wm-page name="googlemap" data-ng-controller="GooglemapsController"> 
-    <wm-content name="googlemapview"> 
-        <wm-spinner show="bind:isMapLoading" class="spinner-transparent"></wm-spinner> 
-        <ng-map id="map" default-style="false" min-zoom="2" zoom-to-include-markers="{{zoom === 'Auto' ? 'auto' : false}}" map-initialized="onMapLoad" class="full-height full-width" center="{{center}}" zoom="{{zoomLevel || 5}}" draggable="true" map-type-id="{{viewtype}}"> 
-            <div ng-repeat="marker in markersData"> 
-                <marker position="{{marker.latlng}}" on-mouseover="onMarkerHover(event, marker)" on-click="onMarkerClick(event, marker)" icon="{{marker.iconData}}"> 
-                </marker> 
-            </div> 
-            <shape ng-if="radius" name="circle" ng-repeat="shape in markersData" stroke-color="{{shape.color}}" stroke-opacity="0.5" stroke-weight="2" fill-color="{{shape.color}}" fill-opacity="0.35" center="{{shape.latlng}}" radius="{{shape.radius}}"> 
-            </shape> 
-            <directions ng-if="directionsData.wayPoints" travel-mode="{{travelMode}}" waypoints="{{directionsData.wayPoints}}" origin="{{directionsData.origin}}" destination="{{directionsData.destination}}"> 
-            </directions> 
-            <directions ng-if="!directionsData.wayPoints" travel-mode="{{travelMode}}" origin="{{directionsData.origin}}" destination="{{directionsData.destination}}"> 
-            </directions> 
-            <traffic-layer ng-if="trafficLayer"></traffic-layer> 
-            <transit-layer ng-if="transitLayer"></transit-layer> 
-            <heatmap-layer id="heatmapLayer" ng-if="isHeatMapDataReady" data="heatmapData"></heatmap-layer> 
-        </ng-map> 
-    </wm-content> 
-</wm-page>
+<wm-prefab-container name="googlemap">  
+    <wm-spinner show="bind:isMapLoading" class="spinner-transparent"></wm-spinner> 
+    <ng-map id="map" default-style="false" min-zoom="2" [attr.zoom-to-include-markers]="zoom === 'Auto' ? 'auto' : false" map-initialized="onMapLoad" class="full-height full-width" [attr.center]="center" [attr.zoom]="zoomLevel || 5" draggable="true" [attr.map-type-id]="viewtype"> 
+        <div ng-repeat="marker in markersData"> 
+            <marker [attr.position]="marker?.latlng" on-mouseover="onMarkerHover(event, marker)" on-click="onMarkerClick(event, marker)" [attr.icon]="marker?.iconData"> 
+            </marker> 
+        </div> 
+        <shape name="circle" ng-repeat="shape in markersData" [attr.stroke-color]="shape?.color" stroke-opacity="0.5" stroke-weight="2" [attr.fill-color]="shape?.color" fill-opacity="0.35" [attr.center]="shape?.latlng" [attr.radius]="shape?.radius" show="bind:radius"> 
+        </shape> 
+        <directions [attr.travel-mode]="travelMode" [attr.waypoints]="directionsData?.wayPoints" [attr.origin]="directionsData?.origin" [attr.destination]="directionsData?.destination" show="bind:directionsData.wayPoints"> 
+        </directions> 
+        <directions [attr.travel-mode]="travelMode" [attr.origin]="directionsData?.origin" [attr.destination]="directionsData?.destination" show="bind:!directionsData.wayPoints"> 
+        </directions> 
+        <traffic-layer show="bind:trafficLayer"></traffic-layer> 
+        <transit-layer show="bind:transitLayer"></transit-layer> 
+        <heatmap-layer id="heatmapLayer" data="heatmapData" show="bind:isHeatMapDataReady"></heatmap-layer> 
+    </ng-map>  
+</wm-prefab-container>

@@ -1,0 +1,9 @@
+[ {
+  "name" : "googlemaps",
+  "version" : "5.6",
+  "artifactType" : "PREFAB"
+}, {
+  "name" : "bricks",
+  "version" : "2.5",
+  "artifactType" : "THEME"
+} ]

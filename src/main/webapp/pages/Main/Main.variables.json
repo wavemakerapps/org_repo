@@ -1,1 +1,89 @@
-{"CaptureImage":{"_id":"wm-CaptureImage-wm.DeviceVariable-1490681927559","name":"CaptureImage","owner":"Page","category":"wm.DeviceVariable","dataBinding":[{"target":"allowImageEdit","value":true,"type":"boolean"},{"target":"imageQuality","value":80,"type":"number"},{"target":"imageEncodingType","value":"0","type":"list"},{"target":"correctOrientation","value":true,"type":"boolean"}],"service":"camera","operation":"captureImage","dataSet":{"imagePath":"resources/images/imagelists/default-image.png"},"imageQuality":80,"imageEncodingType":"0","allowImageEdit":false,"correctOrientation":true},"CaptureVideo":{"_id":"wm-deviceVariable1-wm.DeviceVariable-1490682419301","name":"CaptureVideo","owner":"Page","category":"wm.DeviceVariable","dataBinding":[],"service":"camera","operation":"captureVideo","dataSet":{"videoPath":""},"imageQuality":80,"imageEncodingType":"0","allowImageEdit":false,"correctOrientation":true},"staticVariable1":{"_id":"wm-staticVariable1-wm.Variable-1490678911933","name":"staticVariable1","owner":"Page","category":"wm.Variable","dataBinding":[],"dataSet":{"dataValue":"Camera Widget & Variable"},"type":"string","isList":false,"saveInPhonegap":false},"staticVariable2":{"_id":"wm-staticVariable2-wm.Variable-1490678939029","name":"staticVariable2","owner":"Page","category":"wm.Variable","dataBinding":[],"dataSet":{"dataValue":"Widget"},"type":"string","isList":false,"saveInPhonegap":false},"staticVariable3":{"_id":"wm-staticVariable3-wm.Variable-1490678978700","name":"staticVariable3","owner":"Page","category":"wm.Variable","dataBinding":[],"dataSet":{"dataValue":true},"type":"boolean","isList":false,"saveInPhonegap":false}}
+{
+  "CaptureImage" : {
+    "_id" : "wm-CaptureImage-wm.DeviceVariable-1490681927559",
+    "name" : "CaptureImage",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "allowImageEdit",
+      "value" : true,
+      "type" : "boolean"
+    }, {
+      "target" : "imageQuality",
+      "value" : 80,
+      "type" : "number"
+    }, {
+      "target" : "imageEncodingType",
+      "value" : "0",
+      "type" : "list"
+    }, {
+      "target" : "correctOrientation",
+      "value" : true,
+      "type" : "boolean"
+    } ],
+    "service" : "camera",
+    "operation" : "captureImage",
+    "dataSet" : {
+      "imagePath" : "resources/images/imagelists/default-image.png"
+    },
+    "imageQuality" : 80,
+    "imageEncodingType" : "0",
+    "allowImageEdit" : false,
+    "correctOrientation" : true
+  },
+  "CaptureVideo" : {
+    "_id" : "wm-deviceVariable1-wm.DeviceVariable-1490682419301",
+    "name" : "CaptureVideo",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ ],
+    "service" : "camera",
+    "operation" : "captureVideo",
+    "dataSet" : {
+      "videoPath" : ""
+    },
+    "imageQuality" : 80,
+    "imageEncodingType" : "0",
+    "allowImageEdit" : false,
+    "correctOrientation" : true
+  },
+  "staticVariable1" : {
+    "_id" : "wm-staticVariable1-wm.Variable-1490678911933",
+    "name" : "staticVariable1",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "Camera Widget & Variable"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "staticVariable2" : {
+    "_id" : "wm-staticVariable2-wm.Variable-1490678939029",
+    "name" : "staticVariable2",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "Widget"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "staticVariable3" : {
+    "_id" : "wm-staticVariable3-wm.Variable-1490678978700",
+    "name" : "staticVariable3",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : true
+    },
+    "type" : "boolean",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}

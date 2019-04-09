@@ -1,1 +1,108 @@
-{"CreateEvent":{"_id":"wm-CreateEvent-wm.DeviceVariable-1490695875356","name":"CreateEvent","owner":"Page","category":"wm.DeviceVariable","dataBinding":[{"target":"eventTitle","value":"bind:Widgets.text1.datavalue","type":"string"},{"target":"eventNotes","value":"bind:Widgets.text2.datavalue","type":"string"},{"target":"eventLocation","value":"bind:Widgets.text3.datavalue","type":"string"},{"target":"eventStart","value":"bind:Widgets.datetime1.datavalue","type":"datetime"},{"target":"eventEnd","value":"bind:Widgets.datetime2.datavalue","type":"datetime"}],"service":"calendar","operation":"createEvent","onSuccess":"CreateEventonSuccess($event, $scope)"},"DeleteEvent":{"_id":"wm-DeleteEvent-wm.DeviceVariable-1490696091004","name":"DeleteEvent","owner":"Page","category":"wm.DeviceVariable","dataBinding":[{"target":"eventTitle","value":"bind:Widgets.Delete_text1.datavalue","type":"string"},{"target":"eventLocation","value":"bind:Widgets.Delete_text3.datavalue","type":"string"},{"target":"eventNotes","value":"bind:Widgets.Delete_text2.datavalue","type":"string"},{"target":"eventStart","value":"bind:Widgets.Delete_datetime1.datavalue","type":"datetime"},{"target":"eventEnd","value":"bind:Widgets.Delete_datetime2.datavalue","type":"datetime"}],"service":"calendar","operation":"deleteEvent","onSuccess":"Variables.DeleteEventSuccess.invoke()"},"DeleteEventSuccess":{"_id":"wm-DeleteEventSuccess-wm.NotificationVariable-1490697075327","name":"DeleteEventSuccess","owner":"Page","category":"wm.NotificationVariable","dataBinding":[{"target":"text","value":"Event deleted successfully","type":"string"},{"target":"title","value":"title","type":"string"},{"target":"okButtonText","value":"OK","type":"string"},{"target":"alerttype","value":"success","type":"string"}],"operation":"alert"},"getEvents":{"_id":"wm-getEvents-wm.DeviceVariable-1490695011491","name":"getEvents","owner":"Page","category":"wm.DeviceVariable","dataBinding":[{"target":"eventTitle","value":"bind:Widgets.mobile_navbar1.query","type":"string"}],"service":"calendar","operation":"getEvents","dataSet":[{"title":"","message":"","location":"","startDate":"","endDate":""}],"startUpdate":true,"autoUpdate":true}}
+{
+  "CreateEvent" : {
+    "_id" : "wm-CreateEvent-wm.DeviceVariable-1490695875356",
+    "name" : "CreateEvent",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "eventTitle",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "eventNotes",
+      "value" : "bind:Widgets.text2.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "eventLocation",
+      "value" : "bind:Widgets.text3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "eventStart",
+      "value" : "bind:Widgets.datetime1.datavalue",
+      "type" : "datetime"
+    }, {
+      "target" : "eventEnd",
+      "value" : "bind:Widgets.datetime2.datavalue",
+      "type" : "datetime"
+    } ],
+    "service" : "calendar",
+    "operation" : "createEvent",
+    "onSuccess" : "CreateEventonSuccess(variable, data)"
+  },
+  "DeleteEvent" : {
+    "_id" : "wm-DeleteEvent-wm.DeviceVariable-1490696091004",
+    "name" : "DeleteEvent",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "eventTitle",
+      "value" : "bind:Widgets.Delete_text1.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "eventLocation",
+      "value" : "bind:Widgets.Delete_text3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "eventNotes",
+      "value" : "bind:Widgets.Delete_text2.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "eventStart",
+      "value" : "bind:Widgets.Delete_datetime1.datavalue",
+      "type" : "datetime"
+    }, {
+      "target" : "eventEnd",
+      "value" : "bind:Widgets.Delete_datetime2.datavalue",
+      "type" : "datetime"
+    } ],
+    "service" : "calendar",
+    "operation" : "deleteEvent",
+    "onSuccess" : "Actions.DeleteEventSuccess.invoke()"
+  },
+  "DeleteEventSuccess" : {
+    "_id" : "wm-DeleteEventSuccess-wm.NotificationVariable-1490697075327",
+    "name" : "DeleteEventSuccess",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "text",
+      "value" : "Event deleted successfully",
+      "type" : "string"
+    }, {
+      "target" : "title",
+      "value" : "title",
+      "type" : "string"
+    }, {
+      "target" : "okButtonText",
+      "value" : "OK",
+      "type" : "string"
+    }, {
+      "target" : "alerttype",
+      "value" : "success",
+      "type" : "string"
+    } ],
+    "operation" : "alert"
+  },
+  "getEvents" : {
+    "_id" : "wm-getEvents-wm.DeviceVariable-1490695011491",
+    "name" : "getEvents",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ {
+      "target" : "eventTitle",
+      "value" : "bind:Widgets.mobile_navbar1.query",
+      "type" : "string"
+    } ],
+    "service" : "calendar",
+    "operation" : "getEvents",
+    "dataSet" : [ {
+      "title" : "",
+      "message" : "",
+      "location" : "",
+      "startDate" : "",
+      "endDate" : ""
+    } ],
+    "startUpdate" : true,
+    "autoUpdate" : true
+  }
+}

@@ -6,7 +6,8 @@
     "x-WM-USE_PROXY_FOR_MOBILE" : false,
     "x-WM-API_ID" : "efae085f-a48c-4a93-912a-b79a546897ea",
     "x-WM-SERVICE_ID" : "randomuser",
-    "x-WM-SERVICE_TYPE" : "RestService"
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
   },
   "host" : "api.randomuser.me",
   "basePath" : "",

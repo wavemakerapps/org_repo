@@ -6,7 +6,8 @@
     "x-WM-USE_PROXY_FOR_MOBILE" : true,
     "x-WM-API_ID" : "39dd845d-4f83-47ff-a246-a686207916bf",
     "x-WM-SERVICE_ID" : "ipify",
-    "x-WM-SERVICE_TYPE" : "RestService"
+    "x-WM-SERVICE_TYPE" : "RestService",
+    "x-WM-USE_WITH_CREDENTIALS" : false
   },
   "host" : "api.ipify.org",
   "basePath" : "",

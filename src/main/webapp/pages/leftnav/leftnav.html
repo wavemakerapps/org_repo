@@ -1,30 +1,30 @@
-<wm-partial type="left-panel" data-ng-controller="leftnavPageController" name="leftnav"> 
+<wm-partial type="left-panel" name="leftnav"> 
     <wm-nav type="pills" name="nav1" layout="stacked"> 
         <wm-nav-item name="nav_item1"> 
-            <wm-anchor class="active" caption="Camera" name="anchor1" iconclass="" on-tap="Variables.goToPage_Main.invoke()"></wm-anchor> 
+            <wm-anchor class="active" caption="Camera" name="anchor1" iconclass="" on-tap="App.activePage.Actions.goToPage_Main.invoke()"></wm-anchor> 
         </wm-nav-item> 
         <wm-nav-item name="nav_item2"> 
-            <wm-anchor caption="Barcode" name="anchor2" iconclass="" on-tap="Variables.goToPage_Barcode.invoke()"></wm-anchor> 
+            <wm-anchor caption="Barcode" name="anchor2" iconclass="" on-tap="App.activePage.Actions.goToPage_Barcode.invoke()"></wm-anchor> 
         </wm-nav-item> 
         <wm-nav-item name="nav_item3"> 
-            <wm-anchor caption="Contacts Device Variable" name="anchor3" iconclass="" on-tap="Variables.goToPage_Contact_device_variable.invoke()"></wm-anchor> 
+            <wm-anchor caption="Contacts Device Variable" name="anchor3" iconclass="" on-tap="App.activePage.Actions.goToPage_Contact_device_variable.invoke()"></wm-anchor> 
         </wm-nav-item> 
     </wm-nav> 
     <wm-nav type="pills" name="nav2" layout="stacked"> 
         <wm-nav-item name="nav_item4"> 
-            <wm-anchor caption="Device Variables" name="anchor4" on-tap="Variables.goToPage_Device_Variables.invoke()"></wm-anchor> 
+            <wm-anchor caption="Device Variables" name="anchor4" on-tap="App.activePage.Actions.goToPage_Device_Variables.invoke()"></wm-anchor> 
         </wm-nav-item> 
         <wm-nav-item name="nav_item5"> 
-            <wm-anchor caption="Calendar" name="anchor5" on-tap="Variables.goToPage_Calendar.invoke()"></wm-anchor> 
+            <wm-anchor caption="Calendar" name="anchor5" on-tap="App.activePage.Actions.goToPage_Calendar.invoke()"></wm-anchor> 
         </wm-nav-item> 
         <wm-nav-item name="nav_item6"> 
-            <wm-anchor caption="File upload Widget and Variable" name="anchor6" on-tap="Variables.goToPage_file_upload.invoke()"></wm-anchor> 
+            <wm-anchor caption="File upload Widget and Variable" name="anchor6" on-tap="App.activePage.Actions.goToPage_file_upload.invoke()"></wm-anchor> 
         </wm-nav-item> 
         <wm-nav-item name="nav_item8"> 
-            <wm-anchor name="anchor7" iconclass="" caption="Plugin" on-tap="Actions.goToPage_plugin.invoke()"></wm-anchor> 
+            <wm-anchor name="anchor7" iconclass="" caption="Plugin" on-tap="App.activePage.Actions.goToPage_plugin.invoke()"></wm-anchor> 
         </wm-nav-item> 
         <wm-nav-item name="nav_item8_1"> 
-            <wm-anchor name="anchor8" iconclass="" caption="Media list" on-tap="Actions.goToPage_media.invoke()"></wm-anchor> 
+            <wm-anchor name="anchor8" iconclass="" caption="Media list" on-tap="App.activePage.Actions.goToPage_media.invoke()"></wm-anchor> 
         </wm-nav-item> 
     </wm-nav> 
 </wm-partial>
