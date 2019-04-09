@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+<?xml version="1.0" encoding="UTF-8"?><!--
   This is an appropriate place for user modifications to the web.xml.  
   Entries from this file will be combined with the default WaveMaker web.xml;
   the order is not guaranteed.
 
   Content changes must go between the two tags below.
 --><web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <display-name>Mobile_Live_Widgets_9</display-name>
+    <display-name>Mobile_Live_Widgets</display-name>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

@@ -1,0 +1,6 @@
+{
+  "id" : "Calculator",
+  "type" : "SoapService",
+  "packageNames" : [ "com.mobile_live_widgets_prod.services.calculator" ],
+  "title" : "Calculator"
+}

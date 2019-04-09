@@ -5,7 +5,7 @@
   "driverClass" : "org.hsqldb.jdbcDriver",
   "dialect" : "org.hibernate.dialect.HSQLDialect",
   "serviceId" : "hrdb",
-  "packageName" : "com.mobile_widgets_variables.hrdb",
+  "packageName" : "com.hrdb",
   "dbType" : "HSQLDB",
   "host" : "localhost",
   "dbName" : "hrdb",

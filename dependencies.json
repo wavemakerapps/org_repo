@@ -1,11 +1,6 @@
 [ {
-  "name" : "googlemaps",
-  "version" : "6.3",
-  "artifactType" : "PREFAB",
-  "artifactDependencyList" : null
-}, {
-  "name" : "blue-enterprise",
-  "version" : "2.9",
+  "name" : "mobile",
+  "version" : "3.5",
   "artifactType" : "THEME",
   "artifactDependencyList" : null
 } ]

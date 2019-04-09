@@ -2,4 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="Emp_Data">
+        <![CDATA[
+        select * from EMPLOYEE
+        ]]>
+    </sql-query>
+
+    <sql-query name="Emp_Data__count">
+        <![CDATA[
+        select count(*) from (select * from EMPLOYEE) wmTempTable
+        ]]>
+    </sql-query>
 </hibernate-mapping>

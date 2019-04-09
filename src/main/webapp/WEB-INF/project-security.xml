@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+    <bean class="com.wavemaker.runtime.cors.CorsBeanPostProcessor" id="corsBeanPostProcessor"/>
+    <bean class="org.springframework.web.cors.UrlBasedCorsConfigurationSource" id="corsConfigurationSource"/>
+    <bean class="org.springframework.web.filter.CorsFilter" id="corsFilter">
+        <constructor-arg ref="corsConfigurationSource"/>
+    </bean>
     <bean class="com.wavemaker.runtime.security.SecurityService" id="securityService"/>
     <bean class="com.wavemaker.runtime.security.controller.SecurityController" id="securityController"/>
     <bean class="com.wavemaker.runtime.web.filter.SSLSecureFilter" id="sslSecureFilter"/>
     <bean class="com.wavemaker.runtime.security.xss.filter.WMXSSFilter" id="wmXSSFilter"/>
-    <bean class="com.wavemaker.runtime.security.filter.WMXContentTypeOptionsFilter" id="wmXContentTypeOptionsFilter"/>
-    <bean class="org.springframework.web.filter.CorsFilter" id="corsFilter">
-        <constructor-arg ref="corsConfigurationSource"/>
-    </bean>
-    <bean class="org.springframework.web.cors.UrlBasedCorsConfigurationSource" id="corsConfigurationSource"/>
-    <bean class="com.wavemaker.runtime.cors.CorsBeanPostProcessor" id="corsBeanPostProcessor"/>
     <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -28,15 +27,14 @@
         <property name="enforceSecurity">
             <value>${enabled}</value>
         </property>
-        <property name="rolesConfig" ref="rolesConfig"/>
         <property name="loginConfig" ref="loginConfig"/>
-        <property name="tokenAuthConfig" ref="tokenAuthConfig"/>
         <property name="csrfConfig" ref="csrfConfig"/>
+        <property name="rolesConfig" ref="rolesConfig"/>
+        <property name="tokenAuthConfig" ref="tokenAuthConfig"/>
     </bean>
     <bean class="com.wavemaker.commons.model.security.SSLConfig" id="sslConfig">
         <property name="useSSL" value="${general.ssl.enabled}"/>
         <property name="sslPort" value="${general.ssl.port}"/>
-        <property name="excludedUrls" value="#{null}"/>
     </bean>
     <bean class="com.wavemaker.commons.model.security.XSSConfig" id="xssConfig">
         <property name="enforceXssSecurity" value="${general.xss.enabled}"/>
@@ -69,12 +67,11 @@
         <security:intercept-url access="permitAll" pattern="/j_spring_security_check"/>
         <security:csrf disabled="true"/>
         <security:intercept-url access="permitAll" pattern="/j_spring_security_logout"/>
-        <security:intercept-url access="permitAll" pattern="/pages/Login/**"/>
-        <security:intercept-url access="permitAll" pattern="/services/application/i18n/**"/>
         <security:intercept-url access="permitAll" pattern="/services/prefabs/**/servicedefs"/>
         <security:intercept-url access="permitAll" pattern="/services/security/**"/>
         <security:intercept-url access="permitAll" pattern="/services/servicedefs"/>
-        <security:intercept-url access="permitAll" method="OPTIONS" pattern="/**"/>
+        <security:intercept-url access="permitAll" pattern="/services/application/i18n/**"/>
+        <security:intercept-url access="isAuthenticated()" pattern="/**"/>
         <security:intercept-url access="isAuthenticated()" pattern="/"/>
         <security:intercept-url access="isAuthenticated()" pattern="/**"/>
         <security:headers disabled="true"/>
@@ -92,7 +89,7 @@
         <constructor-arg ref="csrfTokenRepository"/>
     </bean>
     <security:authentication-manager id="authenticationManager">
-        <security:authentication-provider ref="databaseAuthenticationProvider"/>
+        <security:authentication-provider ref="demoAuthenticationProvider"/>
         <security:authentication-provider ref="rememberMeAuthenticationProvider"/>
     </security:authentication-manager>
     <bean class="com.wavemaker.runtime.security.WMAppAccessDeniedHandler" id="wmAppAccessDeniedHandler"/>
@@ -132,10 +129,10 @@
         <property name="pageName" value="Login"/>
         <property name="sessionTimeout">
             <bean class="com.wavemaker.commons.model.security.SessionTimeoutConfig">
-                <property name="pageName" value="Login"/>
+                <property name="pageName" value=""/>
                 <property name="timeoutValue" value="${general.session.timeout}"/>
                 <property name="type">
-                    <value type="com.wavemaker.commons.model.security.LoginType">PAGE</value>
+                    <value type="com.wavemaker.commons.model.security.LoginType">DIALOG</value>
                 </property>
             </bean>
         </property>
@@ -164,11 +161,6 @@
             </map>
         </property>
     </bean>
-    <bean class="com.wavemaker.commons.model.security.TokenAuthConfig" id="tokenAuthConfig">
-        <property name="enabled" value="${general.tokenService.enabled}"/>
-        <property name="parameter" value="${general.tokenService.parameter}"/>
-        <property name="tokenValiditySeconds" value="${general.tokenService.tokenValiditySeconds}"/>
-    </bean>
     <bean class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter" id="WMSecAuthFilter">
         <property name="authenticationSuccessHandler" ref="successHandler"/>
         <property name="authenticationFailureHandler" ref="failureHandler"/>
@@ -186,46 +178,40 @@
         <property name="redirectStrategy" ref="redirectStrategyBean"/>
     </bean>
     <bean class="org.springframework.security.web.DefaultRedirectStrategy" id="redirectStrategyBean"/>
-    <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider" id="databaseAuthenticationProvider">
-        <property name="userDetailsService" ref="jdbcDaoImpl"/>
+    <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider" id="demoAuthenticationProvider">
+        <property name="userDetailsService" ref="demoUserDetailsService"/>
         <property name="passwordEncoder" ref="passwordEncoder"/>
     </bean>
-    <bean class="com.wavemaker.runtime.security.provider.database.users.DefaultUserProviderImpl" id="defaultUserProvider">
-        <property name="usersByUsernameQuery">
-            <value>SELECT empId, password, 1, username FROM Employee WHERE username = ?</value>
-        </property>
-        <property name="hql" value="true"/>
-        <property name="hibernateTemplate">
-            <ref bean="hrdbTemplate"/>
-        </property>
-        <property name="transactionManager">
-            <ref bean="hrdbTransactionManager"/>
-        </property>
-    </bean>
-    <bean class="com.wavemaker.runtime.security.provider.database.authorities.DefaultAuthoritiesProviderImpl" id="defaultAuthoritiesProvider">
-        <property name="hql" value="true"/>
-        <property name="rolePrefix">
-            <value>ROLE_</value>
-        </property>
-        <property name="authoritiesByUsernameQuery">
-            <value>SELECT role FROM Employee WHERE username = :LOGGED_IN_USERNAME</value>
-        </property>
-        <property name="rolesByQuery" value="true"/>
-        <property name="hibernateTemplate">
-            <ref bean="hrdbTemplate"/>
-        </property>
-        <property name="transactionManager">
-            <ref bean="hrdbTransactionManager"/>
+    <bean class="com.wavemaker.runtime.security.DemoUserDetailsManager" id="demoUserDetailsService">
+        <property name="users">
+            <list>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="user"/>
+                    <constructor-arg value="user"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_user</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.wavemaker.runtime.security.WMUser">
+                    <constructor-arg value="admin"/>
+                    <constructor-arg value="admin"/>
+                    <constructor-arg>
+                        <list>
+                            <value>ROLE_admin</value>
+                        </list>
+                    </constructor-arg>
+                </bean>
+            </list>
         </property>
     </bean>
-    <bean class="com.wavemaker.runtime.security.provider.database.DatabaseUserDetailsService" id="jdbcDaoImpl">
-        <property name="userProvider">
-            <ref bean="defaultUserProvider"/>
-        </property>
-        <property name="authoritiesProvider">
-            <ref bean="defaultAuthoritiesProvider"/>
-        </property>
+    <bean class="com.wavemaker.commons.model.security.TokenAuthConfig" id="tokenAuthConfig">
+        <property name="enabled" value="${general.tokenService.enabled}"/>
+        <property name="parameter" value="${general.tokenService.parameter}"/>
+        <property name="tokenValiditySeconds" value="${general.tokenService.tokenValiditySeconds}"/>
     </bean>
+    <bean class="com.wavemaker.runtime.security.filter.WMXContentTypeOptionsFilter" id="wmXContentTypeOptionsFilter"/>
     <bean class="com.wavemaker.commons.model.security.CorsConfig" id="corsConfig">
         <property name="enabled" value="${general.cors.enabled}"/>
         <property name="maxAge" value="${general.cors.maxAge}"/>
@@ -312,7 +298,7 @@
         <constructor-arg ref="rememberMeRepository"/>
         <property name="parameter" value="j_rememberme"/>
         <property name="tokenValiditySeconds" value="${general.rememberMe.timeOut}"/>
-        <constructor-arg ref="jdbcDaoImpl"/>
+        <constructor-arg ref="demoUserDetailsService"/>
     </bean>
     <bean class="com.wavemaker.runtime.security.token.repository.WMTokenRepository" id="tokenRepository"/>
     <bean class="com.wavemaker.runtime.webprocess.filter.LoginProcessFilter" id="loginWebProcessFilter"/>

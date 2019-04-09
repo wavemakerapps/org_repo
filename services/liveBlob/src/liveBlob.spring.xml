@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.mobile_live_widgets_prod.liveblob.controller,com.mobile_live_widgets_prod.liveblob.service,com.mobile_live_widgets_prod.liveblob.dao"/>
+    <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>
+                    classpath:liveBlob.properties
+                </value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="searchSystemEnvironment" value="true"/>
+    </bean>
+
+    <bean id="liveBlobHikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="jdbcUrl" value="${liveBlob.url}"/>
+        <property name="driverClassName" value="${liveBlob.driverClass}"/>
+        <property name="username" value="${liveBlob.username}"/>
+        <property name="password" value="${liveBlob.password}"/>
+        <property name="maximumPoolSize" value="${liveBlob.maxPoolSize}"/>
+        <property name="minimumIdle" value="${liveBlob.minPoolSize}"/>
+        <property name="connectionTimeout" value="30000" />
+        <property name="validationTimeout" value="5000" />
+        <property name="idleTimeout" value="600000" />
+        <property name="maxLifetime" value="1800000" />
+        <property name="initializationFailTimeout" value="-1" />
+        <property name="leakDetectionThreshold" value="120000" />
+        <property name="registerMbeans" value="false" />
+    </bean>
+
+    <bean id="liveBlobWMManagedDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" lazy-init="true">
+        <constructor-arg ref="liveBlobHikariConfig"/>
+    </bean>
+
+    <bean id="liveBlobEntityInterceptor" class="com.wavemaker.runtime.data.interceptors.WMEntityInterceptor"/>
+
+    <bean id="liveBlobSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="liveBlobDataSource"/>
+        <property name="packagesToScan" value="com.mobile_live_widgets_prod.liveblob"/>
+        <property name="entityInterceptor" ref="liveBlobEntityInterceptor"/>
+        <property name="entityTypeFilters" ref="nonHistoryEntitiesFilter"/>
+        <property name="mappingResources">
+            <list>
+                <value>
+                liveBlob-queries.hbm.xml
+                </value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties" ref="liveBlobHibernateProperties"/>
+    </bean>
+    <bean id="liveBlobTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="liveBlobSessionFactory"/>
+        <property name="defaultTimeout" value="${liveBlob.transactionTimeout}"/>
+    </bean>
+    <bean id="liveBlobTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="liveBlobSessionFactory"/>
+    </bean>
+    
+    <bean id="liveBlobWMQLTypeHelper" class="com.wavemaker.runtime.data.dao.query.types.wmql.WMQLDefaultTypeHelper" lazy-init="false" />
+    
+    <bean id="liveBlobWMQueryExecutor" class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl">
+        <property name="template" ref="liveBlobTemplate"/>
+    </bean>
+    <bean id="liveBlobWMProcedureExecutor" class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl">
+        <property name="template" ref="liveBlobTemplate"/>
+        <property name="serviceId" value="liveBlob"/>
+    </bean>
+
+    <bean id="liveBlobHibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="hibernate.dialect">
+                ${liveBlob.dialect}
+                </prop>
+                <prop key="hibernate.show_sql">
+                    false
+                </prop>
+                <prop key="hibernate.globally_quoted_identifiers">
+                    false
+                </prop>
+                <prop key="hibernate.hbm2ddl.auto">
+                ${liveBlob.hbm2ddl}
+                </prop>
+                <prop key="hibernate.temp.use_jdbc_metadata_defaults">
+                    false
+                </prop>
+                <prop key="hibernate.schema_update.unique_constraint_strategy">
+                    skip
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="liveBlobPageableHandlerMethodResolver" class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" >
+        <property name="pageParameterName" value="page"/>
+        <property name="sizeParameterName" value="size"/>
+        <property name="oneIndexedParameters" value="true"/>
+        <property name="maxPageSize" value="${liveBlob.maxPageSize}"/>
+        <property name="fallbackPageable">
+            <bean  class="org.springframework.data.domain.PageRequest">
+                <constructor-arg  value="0"/>
+                <constructor-arg  value="20"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="liveBlobDataSource" class="com.wavemaker.runtime.data.datasource.WMDataSource">
+        <property name="dataSourceType" value="${liveBlob.dataSourceType}"/>
+        <property name="jndiName" value="${liveBlob.jndiName}"/>
+        <property name="serviceId" value="liveBlob"/>
+    </bean>
+
+
+    <tx:annotation-driven/>
+
+</beans>
+

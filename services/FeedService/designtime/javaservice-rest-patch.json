@@ -1,0 +1,89 @@
+{
+  "description" : null,
+  "methods" : {
+    "getFeed" : [ {
+      "url" : {
+        "value" : "",
+        "modified" : true
+      },
+      "method" : {
+        "value" : "GET",
+        "modified" : false
+      },
+      "accessSpecifier" : "APP_ONLY",
+      "description" : "Reads from the InputStream of the specified URL and builds the feed object from the returned XML.",
+      "parameters" : {
+        "feedURL" : {
+          "name" : {
+            "value" : "feedURL",
+            "modified" : false
+          },
+          "in" : {
+            "value" : "QUERY",
+            "modified" : false
+          },
+          "required" : {
+            "value" : false,
+            "modified" : false
+          }
+        }
+      }
+    } ],
+    "getFeedWithHttpConfig" : [ {
+      "url" : {
+        "value" : "/auth",
+        "modified" : true
+      },
+      "method" : {
+        "value" : "GET",
+        "modified" : false
+      },
+      "accessSpecifier" : "APP_ONLY",
+      "description" : "Reads from the InputStream of the specified URL & http auth and builds the feed object from the returned XML.",
+      "parameters" : {
+        "feedURL" : {
+          "name" : {
+            "value" : "feedURL",
+            "modified" : false
+          },
+          "in" : {
+            "value" : "QUERY",
+            "modified" : false
+          },
+          "required" : {
+            "value" : false,
+            "modified" : false
+          }
+        },
+        "httpBasicAuthUsername" : {
+          "name" : {
+            "value" : "httpBasicAuthUsername",
+            "modified" : false
+          },
+          "in" : {
+            "value" : "QUERY",
+            "modified" : false
+          },
+          "required" : {
+            "value" : false,
+            "modified" : false
+          }
+        },
+        "connectionTimeout" : {
+          "name" : {
+            "value" : "connectionTimeout",
+            "modified" : false
+          },
+          "in" : {
+            "value" : "QUERY",
+            "modified" : false
+          },
+          "required" : {
+            "value" : false,
+            "modified" : false
+          }
+        }
+      }
+    } ]
+  }
+}

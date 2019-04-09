@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wavemaker.project</groupId>
-    <artifactId>Mobile_Live_Widgets_9</artifactId>
+    <artifactId>Mobile_Live_Widgets</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
     <build>
@@ -13,7 +13,14 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/FileService/src</directory>
+                <directory>services/Calculator/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/FeedService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -27,7 +34,7 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/MyJavaService1/src</directory>
+                <directory>services/googleapis/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -41,14 +48,7 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/ipify/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/randomuser/src</directory>
+                <directory>services/liveBlob/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -60,8 +60,15 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/wavemakeronline/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
         </resources>
-        <finalName>Mobile_Live_Widgets_9</finalName>
+        <finalName>Mobile_Live_Widgets</finalName>
         <filters>
             <filter>profiles/${profile.props.file}/</filter>
         </filters>
@@ -183,13 +190,14 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>services/FileService/src</source>
+                                <source>services/Calculator/src</source>
+                                <source>services/FeedService/src</source>
                                 <source>services/MyJavaService/src</source>
-                                <source>services/MyJavaService1/src</source>
+                                <source>services/googleapis/src</source>
                                 <source>services/hrdb/src</source>
-                                <source>services/ipify/src</source>
-                                <source>services/randomuser/src</source>
+                                <source>services/liveBlob/src</source>
                                 <source>services/securityService/src</source>
+                                <source>services/wavemakeronline/src</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -405,6 +413,11 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

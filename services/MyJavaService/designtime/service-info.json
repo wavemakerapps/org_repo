@@ -1,7 +1,7 @@
 {
   "id" : "MyJavaService",
   "type" : "JavaService",
-  "packageNames" : [ "com.mobile_widgets_variables.myjavaservice" ],
-  "serviceClassNames" : [ "com.mobile_widgets_variables.myjavaservice.MyJavaService" ],
+  "packageNames" : [ "com.mobile_live_widgets_prod.myjavaservice" ],
+  "serviceClassNames" : [ "com.mobile_live_widgets_prod.myjavaservice.MyJavaService" ],
   "title" : "MyJavaService"
 }

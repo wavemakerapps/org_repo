@@ -1,6 +1,6 @@
 {
   "id" : "hrdb",
   "type" : "DataService",
-  "packageNames" : [ "com.mobile_widgets_variables.hrdb" ],
+  "packageNames" : [ "com.hrdb" ],
   "title" : "hrdb"
 }

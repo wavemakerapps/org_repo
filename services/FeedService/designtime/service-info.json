@@ -1,0 +1,7 @@
+{
+  "id" : "FeedService",
+  "type" : "JavaService",
+  "packageNames" : [ "com.mobile_live_widgets_prod.feedService" ],
+  "serviceClassNames" : [ "com.mobile_live_widgets_prod.feedService.FeedService" ],
+  "title" : "FeedService"
+}
