@@ -73,4 +73,3 @@ public class CameraImage implements Serializable {
         return Objects.hash(getId());
     }
 }
-

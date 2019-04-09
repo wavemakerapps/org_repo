@@ -26,9 +26,9 @@
   "dataSourceType" : "WM_MANAGED_DATASOURCE",
   "jndiName" : "",
   "reloadInfo" : {
-    "reload" : true,
-    "reason" : "MIGRATION_FAILED",
-    "message" : "Source code re-generation needed to add new export API."
+    "reload" : false,
+    "reason" : null,
+    "message" : null
   },
   "readOnly" : false
 }

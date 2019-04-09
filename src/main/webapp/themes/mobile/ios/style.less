@@ -196,10 +196,10 @@
     a, .btn, .dropdown a, .dropdown a.dropdown-toggle, .app-popover a {
       letter-spacing: .025em;
       font-weight: 400;
-      padding: .93em 1em;
+      padding: 1em;
       position: relative;
       border-radius: 0;
-      line-height: 24pt;
+      line-height: 1;
       color: @text-color;
       &:hover {
         text-decoration: none;
@@ -216,17 +216,12 @@
         text-align: center;
       }
     }
-    .dropdown-menu {
-      position: relative;
-      box-shadow: none;
-      border: 0;
-      margin-left: 0;
+    .caret {
+      margin-top: 0;
+      height: auto;
     }
     > .dropdown.open {
       .dropdown-menu {
-        position: relative;
-        border: 0;
-        box-shadow: none;
         li {
           a {
             padding: .93em 1em;
@@ -304,7 +299,6 @@
       .app-icon {
         background-size: 100%;
         margin-right: 0.417em;
-        top: 0.167em;
       }
     }
     &.active {
@@ -488,7 +482,7 @@
 /*******************************************************************************************/
   .app-form, .app-liveform, .app-device-liveform, .app-livefilter {
     .app-composite-widget {
-      &.caption-top label {
+      &.caption-top .control-label {
         width: 33%;
       }
     }
@@ -544,11 +538,17 @@
   }
 }
 
+  /*checkboxes and radioboxes*/
+  .radio.app-radio, .app-checkbox.checkbox {
+    input[type="checkbox"], input[type="radio"] {
+      margin-top: 2px;
+    }
+  }
+
 //form controls
 .form-control {
   box-shadow: none;
   height: @input-height-base;
-  border-color: transparent;
   &textarea {
     height: (@input-height-base * 2);
   }
@@ -617,6 +617,7 @@
     input.form-control[type="search"] {
       border-top-left-radius: 15px !important;
       border-bottom-left-radius: 15px !important;
+      border-color: transparent;
     }
   }
 //Calendar

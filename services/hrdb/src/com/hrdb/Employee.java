@@ -10,7 +10,6 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,7 +20,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PostPersist;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -50,9 +55,9 @@ public class Employee implements Serializable {
     private String role;
     private Integer managerId;
     private Integer tenantId;
-    private List<Vacation> vacations;
     private Department department;
     private Employee employeeByManagerId;
+    private List<Vacation> vacations;
     private List<Employee> employeesForManagerId;
 
     @Id
@@ -201,18 +206,9 @@ public class Employee implements Serializable {
         this.tenantId = tenantId;
     }
 
-    @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employee")
-    public List<Vacation> getVacations() {
-        return this.vacations;
-    }
-
-    public void setVacations(List<Vacation> vacations) {
-        this.vacations = vacations;
-    }
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`DEPT_ID`", referencedColumnName = "`DEPT_ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`DEPTFKEY`"))
+    @Fetch(FetchMode.JOIN)
     public Department getDepartment() {
         return this.department;
     }
@@ -225,10 +221,11 @@ public class Employee implements Serializable {
         this.department = department;
     }
 
-    // ignoring self relation properties to avoid circular loops.
+    // ignoring self relation properties to avoid circular loops & unwanted fields from the related entity.
     @JsonIgnoreProperties({"employeeByManagerId", "employeesForManagerId"})
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`MANAGER_ID`", referencedColumnName = "`EMP_ID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`MGRFKEY`"))
+    @Fetch(FetchMode.JOIN)
     public Employee getEmployeeByManagerId() {
         return this.employeeByManagerId;
     }
@@ -240,17 +237,38 @@ public class Employee implements Serializable {
 
         this.employeeByManagerId = employeeByManagerId;
     }
+    @JsonInclude(Include.NON_EMPTY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
+    public List<Vacation> getVacations() {
+        return this.vacations;
+    }
 
-    // ignoring self relation properties to avoid circular loops.
+    public void setVacations(List<Vacation> vacations) {
+        this.vacations = vacations;
+    }
+
+    // ignoring self relation properties to avoid circular loops & unwanted fields from the related entity.
     @JsonIgnoreProperties({"employeeByManagerId", "employeesForManagerId"})
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employeeByManagerId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employeeByManagerId")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<Employee> getEmployeesForManagerId() {
         return this.employeesForManagerId;
     }
 
     public void setEmployeesForManagerId(List<Employee> employeesForManagerId) {
         this.employeesForManagerId = employeesForManagerId;
+    }
+
+    @PostPersist
+    public void onPostPersist() {
+        if(vacations != null) {
+            vacations.forEach(_vacation -> _vacation.setEmployee(this));
+        }
+        if(employeesForManagerId != null) {
+            employeesForManagerId.forEach(_employee -> _employee.setEmployeeByManagerId(this));
+        }
     }
 
     @Override
@@ -266,4 +284,3 @@ public class Employee implements Serializable {
         return Objects.hash(getEmpId());
     }
 }
-

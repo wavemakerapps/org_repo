@@ -772,11 +772,11 @@
       "watchOn" : "HrdbEmployeeData",
       "package" : "com.hrdb.Employee"
     } ],
-    "package" : "com.hrdb.Employee",
     "filterExpressions" : {
       "condition" : "AND",
       "rules" : [ ]
-    }
+    },
+    "package" : "com.hrdb.Employee"
   },
   "LiveBlobCameraImageData" : {
     "_id" : "wm-LiveBlobCameraImageData-wm.LiveVariable-1509447899602",
@@ -851,7 +851,6 @@
     "properties" : [ ],
     "relatedTables" : [ ],
     "filterFields" : { },
-    "package" : "com.mobile_live_widgets_prod.liveblob.CameraImage",
     "filterExpressions" : {
       "condition" : "AND",
       "rules" : [ {
@@ -861,6 +860,7 @@
         "matchMode" : "exact",
         "required" : false
       } ]
-    }
+    },
+    "package" : "com.mobile_live_widgets_prod.liveblob.CameraImage"
   }
 }

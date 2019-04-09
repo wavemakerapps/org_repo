@@ -24,6 +24,7 @@
   /*******************************************************************************************/
   /***************************************Form Widgets****************************************/
   /*******************************************************************************************/
+  /*checkboxes and radioboxes*/
   /*******************************************************************************************/
   /***************************************Advanced Widgets****************************************/
   /*******************************************************************************************/
@@ -6903,10 +6904,10 @@ button.wm-app .close {
 .wm-app .app-nav .app-nav-item .app-popover a {
   letter-spacing: .025em;
   font-weight: 400;
-  padding: .93em 1em;
+  padding: 1em;
   position: relative;
   border-radius: 0;
-  line-height: 24pt;
+  line-height: 1;
   color: #333333;
 }
 .wm-app .app-nav .app-nav-item a:hover,
@@ -6935,16 +6936,9 @@ button.wm-app .close {
   width: 1.2em;
   text-align: center;
 }
-.wm-app .app-nav .app-nav-item .dropdown-menu {
-  position: relative;
-  box-shadow: none;
-  border: 0;
-  margin-left: 0;
-}
-.wm-app .app-nav .app-nav-item > .dropdown.open .dropdown-menu {
-  position: relative;
-  border: 0;
-  box-shadow: none;
+.wm-app .app-nav .app-nav-item .caret {
+  margin-top: 0;
+  height: auto;
 }
 .wm-app .app-nav .app-nav-item > .dropdown.open .dropdown-menu li a {
   padding: .93em 1em;
@@ -7005,7 +6999,6 @@ button.wm-app .close {
 .wm-app .nav-tabs > li .app-menu a .app-icon {
   background-size: 100%;
   margin-right: 0.417em;
-  top: 0.167em;
 }
 .wm-app .nav-tabs > li.active > a,
 .wm-app .nav-tabs > li.active .app-menu a {
@@ -7120,10 +7113,10 @@ button.wm-app .close {
 .wm-app .app-toggle label {
   box-shadow: none;
 }
-.wm-app .app-form .app-composite-widget.caption-top label,
-.wm-app .app-liveform .app-composite-widget.caption-top label,
-.wm-app .app-device-liveform .app-composite-widget.caption-top label,
-.wm-app .app-livefilter .app-composite-widget.caption-top label {
+.wm-app .app-form .app-composite-widget.caption-top .control-label,
+.wm-app .app-liveform .app-composite-widget.caption-top .control-label,
+.wm-app .app-device-liveform .app-composite-widget.caption-top .control-label,
+.wm-app .app-livefilter .app-composite-widget.caption-top .control-label {
   width: 33%;
 }
 .wm-app .app-form .app-grid-layout input,
@@ -7198,10 +7191,15 @@ button.wm-app .close {
 .wm-app .form-group .app-blob-upload {
   padding-left: 1em;
 }
+.wm-app .radio.app-radio input[type="checkbox"],
+.wm-app .app-checkbox.checkbox input[type="checkbox"],
+.wm-app .radio.app-radio input[type="radio"],
+.wm-app .app-checkbox.checkbox input[type="radio"] {
+  margin-top: 2px;
+}
 .wm-app .form-control {
   box-shadow: none;
   height: 31px;
-  border-color: transparent;
 }
 .wm-app .form-controltextarea {
   height: 62px;
@@ -7246,6 +7244,7 @@ button.wm-app .close {
 .wm-app .input-group.app-search input.form-control[type="search"] {
   border-top-left-radius: 15px !important;
   border-bottom-left-radius: 15px !important;
+  border-color: transparent;
 }
 .wm-app .app-calendar {
   background-color: #fff;
