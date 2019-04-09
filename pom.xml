@@ -34,6 +34,13 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
+                <directory>services/MyJavaService1/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
                 <directory>services/googleapis/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -151,6 +158,7 @@
                                 <source>services/Calculator/src</source>
                                 <source>services/FeedService/src</source>
                                 <source>services/MyJavaService/src</source>
+                                <source>services/MyJavaService1/src</source>
                                 <source>services/googleapis/src</source>
                                 <source>services/hrdb/src</source>
                                 <source>services/liveBlob/src</source>
